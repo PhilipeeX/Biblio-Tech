@@ -1,0 +1,14 @@
+<div id="<%= dom_id supplier %>">
+  <p>
+    <strong>Name:</strong>
+    <%= supplier.name %>
+  </p>
+
+  <div>
+    <strong>Parts:</strong>
+    <% supplier.parts.each do |part| %>
+      <br>
+    <%= part.name %>
+    <% end %>
+  </div>
+</div>
