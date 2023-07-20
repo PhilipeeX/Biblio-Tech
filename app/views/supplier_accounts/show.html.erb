@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @supplier_account %>
+
+<div>
+  <%= link_to "Edit this supplier account", edit_supplier_account_path(@supplier_account) %> |
+  <%= link_to "Back to supplier accounts", supplier_accounts_path %>
+
+  <%= button_to "Destroy this supplier account", @supplier_account, method: :delete %>
+</div>

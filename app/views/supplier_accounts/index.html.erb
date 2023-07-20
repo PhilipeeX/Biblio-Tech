@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Supplier accounts</h1>
+
+<div id="supplier_accounts">
+  <% @supplier_accounts.each do |supplier_account| %>
+    <%= render supplier_account %>
+    <p>
+      <%= link_to "Show this supplier account", supplier_account %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New supplier account", new_supplier_account_path %>
