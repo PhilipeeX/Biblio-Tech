@@ -26,3 +26,29 @@ Book.create(
   publish_year: 1951,
   price: 39.99
 )
+
+# Criação do fornecedor
+bookparts = Supplier.create(
+  name: 'Bookparts S.A'
+)
+makebook = Supplier.create(
+  name: 'Makebook company'
+)
+
+# Criação da conta do fornecedor
+SupplierAccount.create(
+  account: 974687,
+  supplier: bookparts
+)
+SupplierAccount.create(
+  account: 567981,
+  supplier: makebook
+)
+
+# Criação das partes feitas por fornecedor
+Part.create(
+  supplier: bookparts,
+  name: 'Capa dura'
+)
+
+# Criação da montagem do livro
