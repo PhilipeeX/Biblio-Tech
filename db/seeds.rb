@@ -5,8 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Author.create(
+asimov = Author.create(
   name: 'Isaac Asimov'
+)
+Book.create(
+  title: 'The Foundation',
+  author: asimov
 )
 
 booksgood = Supplier.create(
