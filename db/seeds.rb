@@ -8,9 +8,27 @@
 asimov = Author.create(
   name: 'Isaac Asimov'
 )
-
 Book.create(
   title: 'The Foundation',
   author: asimov
 )
 
+booksgood = Supplier.create(
+  name: 'booksgood'
+)
+
+sellbookcompany = Supplier.create(
+  name: 'SellBook Company'
+)
+
+Account.create(
+  bank: 'nuBank',
+  number: 975426,
+  supplier: sellbookcompany
+)
+
+Account.create(
+  bank: 'C6 bank S.A',
+  number: 425900,
+  supplier: booksgood
+)
