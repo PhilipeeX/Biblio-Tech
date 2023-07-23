@@ -5,14 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+# Criação do author
 asimov = Author.create(
   name: 'Isaac Asimov'
 )
+
+# Criação do livro
 Book.create(
   title: 'The Foundation',
   author: asimov
 )
 
+# Criação dos fornecedores
 booksgood = Supplier.create(
   name: 'booksgood'
 )
@@ -21,6 +26,7 @@ sellbookcompany = Supplier.create(
   name: 'SellBook Company'
 )
 
+# Criação das contas dos fornecedores
 Account.create(
   bank: 'nuBank',
   number: 975426,
@@ -32,3 +38,20 @@ Account.create(
   number: 425900,
   supplier: booksgood
 )
+
+# Criação das partes dos livros dos fornecedores
+booksgood.parts.create(
+  title: 'capa dura',
+  description: 'capa rígida do material x com espessura y'
+)
+
+booksgood.parts.create(
+  title: 'folhas resistentes a agua',
+  description: 'folhas que tem a espessura de x milimetros com resistência a agua'
+)
+
+sellbookcompany.parts.create(
+  title: 'Folhas que brilham no escuro',
+  description: 'Folhas que as crianças adoram, elas brilham na luz neon'
+)
+
