@@ -11,9 +11,29 @@ asimov = Author.create(
   name: 'Isaac Asimov'
 )
 
-# Criação do livro
+# Livros escritos por Isaac Asimov
 Book.create(
-  title: 'The Foundation',
+  title: 'Foundation',
+  author: asimov
+)
+
+Book.create(
+  title: 'Foundation and Empire',
+  author: asimov
+)
+
+Book.create(
+  title: 'Second Foundation',
+  author: asimov
+)
+
+Book.create(
+  title: 'I, Robot',
+  author: asimov
+)
+
+Book.create(
+  title: 'The Caves of Steel',
   author: asimov
 )
 
