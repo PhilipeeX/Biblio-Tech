@@ -1,9 +1,10 @@
 class PartsController < ApplicationController
+  before_action :set_supplier
   before_action :set_part, only: %i[ show edit update destroy ]
 
   # GET /parts or /parts.json
   def index
-    @parts = Part.all
+    @parts = @supplier.parts
   end
 
   # GET /parts/1 or /parts/1.json
@@ -12,20 +13,19 @@ class PartsController < ApplicationController
 
   # GET /parts/new
   def new
-    @part = Part.new
+    @part = @supplier.parts.new
   end
 
   # GET /parts/1/edit
-  def edit
-  end
+
 
   # POST /parts or /parts.json
   def create
-    @part = Part.new(part_params)
+    @part = @supplier.parts.new(part_params)
 
     respond_to do |format|
       if @part.save
-        format.html { redirect_to part_url(@part), notice: "Part was successfully created." }
+        format.html { redirect_to supplier_part_url(@supplier,@part), notice: "Part was successfully created." }
         format.json { render :show, status: :created, location: @part }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +34,14 @@ class PartsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   # PATCH/PUT /parts/1 or /parts/1.json
   def update
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to part_url(@part), notice: "Part was successfully updated." }
+        format.html { redirect_to supplier_part_url(@supplier,@part), notice: "Part was successfully updated." }
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,18 +55,21 @@ class PartsController < ApplicationController
     @part.destroy
 
     respond_to do |format|
-      format.html { redirect_to parts_url, notice: "Part was successfully destroyed." }
+      format.html { redirect_to supplier_parts_url, notice: "Part was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
+  def set_supplier
+    @supplier = Supplier.find(params[:supplier_id])
+  end
   def set_part
-    @part = Part.find(params[:id])
+    @part = @supplier.parts.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def part_params
-    params.require(:part).permit(:supplier_id, :title, :description)
+    params.require(:part).permit(:title, :description)
   end
 end
