@@ -1,29 +1,25 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: %i[ show edit update destroy ]
+  before_action :set_author
 
   # GET /books or /books.json
   def index
-    @author = Author.find(params[:author_id])
     @books = @author.books
   end
 
   # GET /books/1 or /books/1.json
   def show
+    @book = @author.books.find(params[:id])
   end
-
   # GET /books/new
   def new
-    @author = Author.find(params[:author_id])
-    @book = @author.books.new
+    @book = @author.books.build
   end
 
   # GET /books/1/edit
-  def edit
-  end
+
 
   # POST /books or /books.json
   def create
-    @author = Author.find(params[:author_id])
     @book = @author.books.new(book_params)
 
     respond_to do |format|
@@ -37,10 +33,13 @@ class BooksController < ApplicationController
     end
   end
 
+  def edit
+    @book = @author.books.find(params[:id])
+  end
+
   # PATCH/PUT /books/1 or /books/1.json
   def update
-    @author = Author.find(params[:author_id])
-
+    @book = @author.books.find(params[:id])
 
     respond_to do |format|
       if @book.update(book_params)
@@ -55,6 +54,7 @@ class BooksController < ApplicationController
 
   # DELETE /books/1 or /books/1.json
   def destroy
+    @book = @author.books.find(params[:id])
     @book.destroy
 
     respond_to do |format|
@@ -65,8 +65,8 @@ class BooksController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
+    def set_author
+      @author = Author.find(params[:author_id])
     end
     # Only allow a list of trusted parameters through.
     def book_params
