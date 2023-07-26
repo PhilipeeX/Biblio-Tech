@@ -3,6 +3,8 @@
 <%= render @author %>
 
 <div>
+  <%= link_to "Mostrar livros desse autor", author_books_path(@author) %>
+
   <%= link_to "Edit this author", edit_author_path(@author) %> |
   <%= link_to "Back to authors", authors_path %>
 
