@@ -3,6 +3,10 @@
 <%= render @supplier %>
 
 <div>
+  <%= link_to 'Mostrar contas desse fornecedor', supplier_accounts_path(@supplier) %> |
+  <%= link_to 'Mostrar peças desse fornecedor', supplier_parts_path(@supplier) %>
+  <br>
+  <br>
   <%= link_to "Edit this supplier", edit_supplier_path(@supplier) %> |
   <%= link_to "Back to suppliers", suppliers_path %>
 

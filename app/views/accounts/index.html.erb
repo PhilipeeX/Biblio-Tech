@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Accounts</h1>
+<h1><%=@supplier.name %> accounts</h1>
 
 <div id="accounts">
   <% @accounts.each do |account| %>
     <%= render account %>
     <p>
-      <%= link_to "Show this account", account %>
+      <%= link_to "Show this account", supplier_account_path(@supplier, account) %>
     </p>
+    <hr>
   <% end %>
 </div>
 
-<%= link_to "New account", new_account_path %>
+<%= link_to "New account", new_supplier_account_path %> |
+<%= link_to 'Retornar para fornecedor',  supplier_path(@supplier)%>

@@ -49,6 +49,8 @@ class SuppliersController < ApplicationController
 
   # DELETE /suppliers/1 or /suppliers/1.json
   def destroy
+    @supplier.accounts.destroy_all
+    @supplier.parts.destroy_all
     @supplier.destroy
 
     respond_to do |format|
