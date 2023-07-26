@@ -48,14 +48,20 @@ sellbookcompany = Supplier.create(
 
 # Criação das contas dos fornecedores
 Account.create(
-  bank: 'nuBank',
-  number: 975426,
+  bank: 'Banco do Brasil',
+  number: 123456,
   supplier: sellbookcompany
 )
 
 Account.create(
-  bank: 'C6 bank S.A',
-  number: 425900,
+  bank: 'Itaú Unibanco',
+  number: 789012,
+  supplier: sellbookcompany
+)
+
+Account.create(
+  bank: 'Bradesco',
+  number: 345678,
   supplier: booksgood
 )
 
