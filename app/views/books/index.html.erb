@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1><%=@author.name %> books</h1>
 
 <div id="books">
   <% @books.each do |book| %>
@@ -8,7 +8,9 @@
     <p>
       <%= link_to "Show this book", author_book_path(author_id: book.author_id, id: book.id) %>
     </p>
+    <hr>
   <% end %>
 </div>
 
-<%= link_to "New book", new_author_book_path %>
+<%= link_to "New book", new_author_book_path %> |
+<%= link_to "Voltar para autor", author_path(@author) %>
