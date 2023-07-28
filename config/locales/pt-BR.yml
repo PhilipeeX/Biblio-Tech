@@ -10,6 +10,9 @@ pt-BR:
       part:
         title: Título
         description: Descrição
+      account:
+        bank: Banco
+        number: Número
   helpers:
     submit:
       create: Criar
@@ -75,3 +78,19 @@ pt-BR:
         update: Peça atualizada com sucesso.
         create: Peça criada com sucesso.
         destroy: Peça apagada com sucesso.
+    account:
+      view_edit_title: Editando conta
+      view_index_title: contas
+      view_new_title: Nova conta
+      show_accounts: Mostrar contas desse fornecedor
+      show: Mostrar essa conta
+      edit: Editar essa conta
+      destroy: Apagar essa conta
+      new: Nova conta
+      back: Voltar para contas
+      back_supplier: Voltar para fornecedor
+      _account_supplier: Fornecedor
+      controller:
+        update: Conta atualizada com sucesso.
+        create: Conta criada com sucesso.
+        destroy: Conta apagada com sucesso.
