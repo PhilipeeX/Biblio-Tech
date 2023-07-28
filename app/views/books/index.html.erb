@@ -6,11 +6,11 @@
   <% @books.each do |book| %>
     <%= render book %>
     <p>
-      <%= link_to "Show this book", author_book_path(author_id: book.author_id, id: book.id) %>
+      <%= link_to I18n.t('author.book.show'), author_book_path(author_id: book.author_id, id: book.id) %>
     </p>
     <hr>
   <% end %>
 </div>
 
-<%= link_to "New book", new_author_book_path %> |
-<%= link_to "Voltar para autor", author_path(@author) %>
+<%= link_to I18n.t('author.book.new'), new_author_book_path %> |
+<%= link_to I18n.t('author.book.back_author'), author_path(@author) %>

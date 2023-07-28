@@ -3,12 +3,24 @@ pt-BR:
     attributes:
       book:
         name: Nome
+      author:
+        name: nome
+  helpers:
+    submit:
+      create: Criar
+      update: Atualizar
   author:
     index_title: Autores
+    edit_title: Editando autor
+    new_title: Novo autor
     show: Mostrar esse autor
     new: Cadastrar novo autor
     edit: Editar este autor
     destroy: Apagar este autor
     back: Voltar para autores
+    error: proibiu esse autor de ser salvo
     book:
-      show: Mostrar livros desse autor
+      show_books: Mostrar livros desse autor
+      show: Mostrar esse livro
+      new: Novo livro
+      back_author: Voltar para autor

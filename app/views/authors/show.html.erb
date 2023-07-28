@@ -3,8 +3,9 @@
 <%= render @author %>
 
 <div>
-  <%= link_to I18n.t('author.book.show'), author_books_path(@author) %>
-
+  <%= link_to I18n.t('author.book.show_books'), author_books_path(@author) %>
+  <br>
+  <br>
   <%= link_to I18n.t('author.edit'), edit_author_path(@author) %> |
   <%= link_to I18n.t('author.back'), authors_path %>
 
