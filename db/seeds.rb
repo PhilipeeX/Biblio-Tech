@@ -103,4 +103,20 @@ Part.create(
   description: 'Folhas que as crianças adoram, elas brilham na luz neon',
   supplier: sellbookcompany
 )
+Part.create(
+  title: 'capa com relevo',
+  description: 'capa do material x com relevo personalizado',
+  supplier: booksgood
+)
 
+Part.create(
+  title: 'folhas coloridas',
+  description: 'folhas com cores vibrantes para tornar a leitura mais divertida',
+  supplier: booksgood
+)
+
+Part.create(
+  title: 'marcadores de página',
+  description: 'marcadores de página personalizados e coloridos',
+  supplier: sellbookcompany
+)
