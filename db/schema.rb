@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
   create_table "accounts", force: :cascade do |t|
     t.bigint "supplier_id", null: false
     t.string "bank"
-    t.integer "number"
+    t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["supplier_id"], name: "index_accounts_on_supplier_id"
