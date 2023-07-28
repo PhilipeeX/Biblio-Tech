@@ -86,18 +86,21 @@ Account.create(
 )
 
 # Criação das partes dos livros dos fornecedores
-booksgood.parts.create(
+Part.create(
   title: 'capa dura',
-  description: 'capa rígida do material x com espessura y'
+  description: 'capa rígida do material x com espessura y',
+  supplier: booksgood
 )
 
-booksgood.parts.create(
+Part.create(
   title: 'folhas resistentes a agua',
-  description: 'folhas que tem a espessura de x milimetros com resistência a agua'
+  description: 'folhas que tem a espessura de x milimetros com resistência a agua',
+  supplier: sellbookcompany
 )
 
-sellbookcompany.parts.create(
+Part.create(
   title: 'Folhas que brilham no escuro',
-  description: 'Folhas que as crianças adoram, elas brilham na luz neon'
+  description: 'Folhas que as crianças adoram, elas brilham na luz neon',
+  supplier: sellbookcompany
 )
 
