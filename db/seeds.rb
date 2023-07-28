@@ -11,6 +11,8 @@ asimov = Author.create(
   name: 'Isaac Asimov'
 )
 
+clarcke = Author.create( name: 'Arthur C. Clarke' )
+
 # Livros escritos por Isaac Asimov
 Book.create(
   title: 'Foundation',
