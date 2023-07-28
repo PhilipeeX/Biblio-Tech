@@ -1,16 +1,16 @@
 <div id="<%= dom_id part %>">
   <p>
-    <strong>Supplier:</strong>
+    <strong><%= I18n.t('supplier.part._part_supplier') %>:</strong>
     <%= part.supplier.name %>
   </p>
 
   <p>
-    <strong>Title:</strong>
+    <strong><%= I18n.t('activerecord.attributes.part.title') %>:</strong>
     <%= part.title %>
   </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong><%= I18n.t('activerecord.attributes.part.description') %>:</strong>
     <%= part.description %>
   </p>
 

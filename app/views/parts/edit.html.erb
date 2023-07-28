@@ -1,10 +1,10 @@
-<h1>Editing part</h1>
+<h1><%= I18n.t('supplier.part.view_edit_title') %></h1>
 
 <%= render "form", part: @part %>
 
 <br>
 
 <div>
-  <%= link_to "Show this part", supplier_part_path(@supplier,@part) %> |
-  <%= link_to "Back to parts", supplier_parts_path %>
+  <%= link_to I18n.t('supplier.part.show'), supplier_part_path(@supplier,@part) %> |
+  <%= link_to I18n.t('supplier.part.back'), supplier_parts_path %>
 </div>

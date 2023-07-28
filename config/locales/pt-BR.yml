@@ -1,12 +1,15 @@
 pt-BR:
   activerecord:
     attributes:
-      book:
-        title: Título
       author:
         name: Nome do autor
+      book:
+        title: Título
       supplier:
         name: Nome do fornecedor
+      part:
+        title: Título
+        description: Descrição
   helpers:
     submit:
       create: Criar
@@ -56,3 +59,19 @@ pt-BR:
       update: Fornecedor atualizado com sucesso.
       create: Fornecedor criado com sucesso.
       destroy: Fornecedor apagado com sucesso.
+    part:
+      view_edit_title: Editando peça
+      view_index_title: Peças
+      view_new_title: Nova peça
+      show_parts: Mostrar peças desse fornecedor
+      show: Mostrar essa peça
+      edit: Editar essa peça
+      destroy: Apagar essa peça
+      new: Nova peça
+      back: Voltar para peças
+      back_supplier: Voltar para fornecedor
+      _part_supplier: Fornecedor
+      controller:
+        update: Peça atualizada com sucesso.
+        create: Peça criada com sucesso.
+        destroy: Peça apagada com sucesso.

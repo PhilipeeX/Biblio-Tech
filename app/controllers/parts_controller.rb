@@ -25,7 +25,7 @@ class PartsController < ApplicationController
 
     respond_to do |format|
       if @part.save
-        format.html { redirect_to supplier_part_url(@supplier,@part), notice: "Part was successfully created." }
+        format.html { redirect_to supplier_part_url(@supplier,@part), notice: I18n.t('supplier.part.controller.create') }
         format.json { render :show, status: :created, location: @part }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -41,7 +41,7 @@ class PartsController < ApplicationController
   def update
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to supplier_part_url(@supplier,@part), notice: "Part was successfully updated." }
+        format.html { redirect_to supplier_part_url(@supplier,@part), notice: I18n.t('supplier.part.controller.update') }
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +55,7 @@ class PartsController < ApplicationController
     @part.destroy
 
     respond_to do |format|
-      format.html { redirect_to supplier_parts_url, notice: "Part was successfully destroyed." }
+      format.html { redirect_to supplier_parts_url, notice: I18n.t('supplier.part.controller.destroy') }
       format.json { head :no_content }
     end
   end
