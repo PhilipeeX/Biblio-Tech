@@ -2,7 +2,7 @@ pt-BR:
   activerecord:
     attributes:
       book:
-        name: Nome
+        title: Título
       author:
         name: nome
   helpers:
@@ -20,7 +20,17 @@ pt-BR:
     back: Voltar para autores
     error: proibiu esse autor de ser salvo
     book:
+      view_edit_title: Editando livro
+      view_index_title: livros
+      view_new_title: Novo livro
       show_books: Mostrar livros desse autor
       show: Mostrar esse livro
+      edit: Editar esse livro
+      destroy: Apagar esse livro
       new: Novo livro
+      back: Voltar para livros
       back_author: Voltar para autor
+      controller:
+        update: Livro atualizado com sucesso.
+        create: Livro criado com sucesso.
+        destroy: Livro apagado com sucesso.

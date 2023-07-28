@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1><%=@author.name %> books</h1>
+<h1><%=@author.name %> <%= I18n.t('author.book.view_index_title')%></h1>
 
 <div id="books">
   <% @books.each do |book| %>
