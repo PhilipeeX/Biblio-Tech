@@ -6,10 +6,10 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 ## Funcionalidades Implementadas
 
 [ ] **CRUDs**
-- [ ] Cadastrar Autores
-- [ ] Cadastrar Livros vinculando com Autor
-- [ ] Cadastrar Fornecedores com uma Conta
-- [ ] Cadastrar Peças vinculando com Fornecedor
+- [x] Cadastrar Autores
+- [x] Cadastrar Livros vinculando com Autor
+- [x] Cadastrar Fornecedores com uma Conta
+- [x] Cadastrar Peças vinculando com Fornecedor
 - [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
 
 [ ] **APIs**
