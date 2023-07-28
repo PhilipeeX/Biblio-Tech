@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    attributes:
+      book:
+        name: Nome
+  author:
+    index_title: Autores
+    show: Mostrar esse autor
+    new: Cadastrar novo autor
+    edit: Editar este autor
+    destroy: Apagar este autor
+    back: Voltar para autores
+    book:
+      show: Mostrar livros desse autor
