@@ -4,7 +4,9 @@ pt-BR:
       book:
         title: Título
       author:
-        name: nome
+        name: Nome do autor
+      supplier:
+        name: Nome do fornecedor
   helpers:
     submit:
       create: Criar
@@ -19,6 +21,10 @@ pt-BR:
     destroy: Apagar este autor
     back: Voltar para autores
     error: proibiu esse autor de ser salvo
+    controller:
+      update: Autor atualizado com sucesso.
+      create: Autor criado com sucesso.
+      destroy: Autor apagado com sucesso.
     book:
       view_edit_title: Editando livro
       view_index_title: livros
@@ -34,3 +40,19 @@ pt-BR:
         update: Livro atualizado com sucesso.
         create: Livro criado com sucesso.
         destroy: Livro apagado com sucesso.
+  supplier:
+    view_index_title: Fornecedores
+    view_edit_title: Editando fornecedor
+    view_new_title: Novo fornecedor
+    show: Mostrar esse fornecedor
+    new: Cadastrar novo fornecedor
+    edit: Editar este fornecedor
+    destroy: Apagar este fornecedor
+    back: Voltar para fornecedores
+    error: proibiu esse fornecedor de ser salvo
+    show_accounts: Mostrar contas desse fornecedor
+    show_parts: Mostrar peças desse fornecedor
+    controller:
+      update: Fornecedor atualizado com sucesso.
+      create: Fornecedor criado com sucesso.
+      destroy: Fornecedor apagado com sucesso.
