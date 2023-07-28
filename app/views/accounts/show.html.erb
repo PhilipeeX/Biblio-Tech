@@ -3,8 +3,8 @@
 <%= render @account %>
 
 <div>
-  <%= link_to "Edit this account", edit_account_path(@account) %> |
-  <%= link_to "Back to accounts", accounts_path %>
+  <%= link_to I18n.t('supplier.account.edit'), edit_supplier_account_path(@account.supplier_id, @account) %> |
+  <%= link_to I18n.t('supplier.account.back'), supplier_accounts_path %>
 
-  <%= button_to "Destroy this account", @account, method: :delete %>
+  <%= button_to I18n.t('supplier.account.destroy'), supplier_account_path, method: :delete %>
 </div>

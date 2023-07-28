@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :accounts
-  resources :suppliers
-  resources :books
-  resources :authors
+  resources :suppliers do
+    resources :parts
+    resources :accounts
+  end
+  resources :authors do
+    resources :books
+  end
   
 end

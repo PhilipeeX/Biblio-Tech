@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Suppliers</h1>
+<h1><%= I18n.t('supplier.view_index_title') %></h1>
 
 <div id="suppliers">
   <% @suppliers.each do |supplier| %>
     <%= render supplier %>
     <p>
-      <%= link_to "Show this supplier", supplier %>
+      <%= link_to I18n.t('supplier.show'), supplier %>
     </p>
+    <hr>
   <% end %>
 </div>
 
-<%= link_to "New supplier", new_supplier_path %>
+<%= link_to I18n.t('supplier.new'), new_supplier_path %>

@@ -1,11 +1,6 @@
 <div id="<%= dom_id book %>">
   <p>
-    <strong>Author:</strong>
-    <%= book.author.name %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
+    <strong><%= I18n.t('activerecord.attributes.book.title') %>:</strong>
     <%= book.title %>
   </p>
 

@@ -1,14 +1,15 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Authors</h1>
+<h1><%= I18n.t('author.index_title') %></h1>
 
 <div id="authors">
   <% @authors.each do |author| %>
     <%= render author %>
     <p>
-      <%= link_to "Show this author", author %>
+      <%= link_to I18n.t('author.show'), author %>
     </p>
+    <hr>
   <% end %>
 </div>
 
-<%= link_to "New author", new_author_path %>
+<%= link_to I18n.t('author.new'), new_author_path %>

@@ -3,8 +3,8 @@
 <%= render @book %>
 
 <div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+  <%= link_to I18n.t('author.book.edit'), edit_author_book_path(@book.author_id, @book) %> |
+  <%= link_to I18n.t('author.book.back'), author_books_path(@book.author_id) %>
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <%= button_to I18n.t('author.book.destroy'), author_book_path, method: :delete %>
 </div>

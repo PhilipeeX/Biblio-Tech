@@ -10,40 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_22_134338) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.string "bank"
+    t.string "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_id"], name: "index_accounts_on_supplier_id"
+  end
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
   create_table "books", force: :cascade do |t|
-      t.bigint "author_id", null: false
-      t.string "title"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.index ["author_id"], name: "index_books_on_author_id"
-    end
-  
-  add_foreign_key "books", "authors"
-  
+    t.bigint "author_id", null: false
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_books_on_author_id"
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.bigint "supplier_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supplier_id"], name: "index_parts_on_supplier_id"
+  end
+
   create_table "suppliers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  create_table "accounts", force: :cascade do |t|
-    t.bigint "supplier_id", null: false
-    t.string "bank"
-    t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["supplier_id"], name: "index_accounts_on_supplier_id"
-  end
 
   add_foreign_key "accounts", "suppliers"
+  add_foreign_key "books", "authors"
+  add_foreign_key "parts", "suppliers"
 end

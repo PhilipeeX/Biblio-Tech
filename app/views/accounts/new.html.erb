@@ -1,9 +1,9 @@
-<h1>New account</h1>
+<h1><%= I18n.t('supplier.account.view_new_title') %></h1>
 
 <%= render "form", account: @account %>
 
 <br>
 
 <div>
-  <%= link_to "Back to accounts", accounts_path %>
+  <%= link_to I18n.t('supplier.account.back'), supplier_accounts_path %>
 </div>
