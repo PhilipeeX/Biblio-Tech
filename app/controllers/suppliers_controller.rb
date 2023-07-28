@@ -25,7 +25,7 @@ class SuppliersController < ApplicationController
 
     respond_to do |format|
       if @supplier.save
-        format.html { redirect_to supplier_url(@supplier), notice: "Supplier was successfully created." }
+        format.html { redirect_to supplier_url(@supplier), notice: I18n.t('supplier.controller.create') }
         format.json { render :show, status: :created, location: @supplier }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class SuppliersController < ApplicationController
   def update
     respond_to do |format|
       if @supplier.update(supplier_params)
-        format.html { redirect_to supplier_url(@supplier), notice: "Supplier was successfully updated." }
+        format.html { redirect_to supplier_url(@supplier), notice: I18n.t('supplier.controller.update') }
         format.json { render :show, status: :ok, location: @supplier }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,12 +49,10 @@ class SuppliersController < ApplicationController
 
   # DELETE /suppliers/1 or /suppliers/1.json
   def destroy
-    @supplier.accounts.destroy_all
-    @supplier.parts.destroy_all
     @supplier.destroy
 
     respond_to do |format|
-      format.html { redirect_to suppliers_url, notice: "Supplier was successfully destroyed." }
+      format.html { redirect_to suppliers_url, notice: I18n.t('supplier.controller.destroy') }
       format.json { head :no_content }
     end
   end
