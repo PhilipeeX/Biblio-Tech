@@ -11,32 +11,50 @@ asimov = Author.create(
   name: 'Isaac Asimov'
 )
 
-clarcke = Author.create( name: 'Arthur C. Clarke' )
+clarke = Author.create( name: 'Arthur C. Clarke' )
 
 # Livros escritos por Isaac Asimov
 Book.create(
   title: 'Foundation',
   author: asimov
 )
-
 Book.create(
   title: 'Foundation and Empire',
   author: asimov
 )
-
 Book.create(
   title: 'Second Foundation',
   author: asimov
 )
-
 Book.create(
   title: 'I, Robot',
   author: asimov
 )
-
 Book.create(
   title: 'The Caves of Steel',
   author: asimov
+)
+
+# Livros escrios por Clarcke
+Book.create(
+  title: '2001: A Space Odyssey',
+  author: clarke
+)
+Book.create(
+  title: 'Rendezvous with Rama',
+  author: clarke
+)
+Book.create(
+  title: 'Childhood\'s End',
+  author: clarke
+)
+Book.create(
+  title: 'The Fountains of Paradise',
+  author: clarke
+)
+Book.create(
+  title: 'The City and the Stars',
+  author: clarke
 )
 
 # Criação dos fornecedores
