@@ -1,0 +1,9 @@
+<h1><%= I18n.t('author.book.view_new_title')%></h1>
+
+<%= render "form", book: @book %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('author.book.back'), new_author_book_path(@book.author_id, @book) %>
+</div>

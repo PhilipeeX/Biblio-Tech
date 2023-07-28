@@ -1,0 +1,10 @@
+<h1><%= I18n.t('supplier.account.view_edit_title') %></h1>
+
+<%= render "form", account: @account %>
+
+<br>
+
+<div>
+  <%= link_to I18n.t('supplier.account.show'), supplier_account_path(@account) %> |
+  <%= link_to I18n.t('supplier.account.back'), supplier_accounts_path %>
+</div>

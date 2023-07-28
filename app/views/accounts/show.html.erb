@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @account %>
+
+<div>
+  <%= link_to I18n.t('supplier.account.edit'), edit_supplier_account_path(@account.supplier_id, @account) %> |
+  <%= link_to I18n.t('supplier.account.back'), supplier_accounts_path %>
+
+  <%= button_to I18n.t('supplier.account.destroy'), supplier_account_path, method: :delete %>
+</div>

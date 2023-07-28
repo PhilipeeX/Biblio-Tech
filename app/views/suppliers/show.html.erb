@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @supplier %>
+
+<div>
+  <%= link_to I18n.t('supplier.show_accounts'), supplier_accounts_path(@supplier) %> |
+  <%= link_to I18n.t('supplier.show_parts'), supplier_parts_path(@supplier) %>
+  <br>
+  <br>
+  <%= link_to I18n.t('supplier.edit'), edit_supplier_path(@supplier) %> |
+  <%= link_to I18n.t('supplier.back'), suppliers_path %>
+
+  <%= button_to I18n.t('supplier.destroy'), @supplier, method: :delete %>
+</div>

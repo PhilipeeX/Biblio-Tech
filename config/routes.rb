@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :authors
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :suppliers do
+    resources :parts
+    resources :accounts
+  end
+  resources :authors do
+    resources :books
+  end
+  
 end

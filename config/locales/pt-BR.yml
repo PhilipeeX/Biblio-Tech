@@ -1,0 +1,96 @@
+pt-BR:
+  activerecord:
+    attributes:
+      author:
+        name: Nome do autor
+      book:
+        title: Título
+      supplier:
+        name: Nome do fornecedor
+      part:
+        title: Título
+        description: Descrição
+      account:
+        bank: Banco
+        number: Número
+  helpers:
+    submit:
+      create: Criar
+      update: Atualizar
+  author:
+    index_title: Autores
+    edit_title: Editando autor
+    new_title: Novo autor
+    show: Mostrar esse autor
+    new: Cadastrar novo autor
+    edit: Editar este autor
+    destroy: Apagar este autor
+    back: Voltar para autores
+    error: proibiu esse autor de ser salvo
+    controller:
+      update: Autor atualizado com sucesso.
+      create: Autor criado com sucesso.
+      destroy: Autor apagado com sucesso.
+    book:
+      view_edit_title: Editando livro
+      view_index_title: livros
+      view_new_title: Novo livro
+      show_books: Mostrar livros desse autor
+      show: Mostrar esse livro
+      edit: Editar esse livro
+      destroy: Apagar esse livro
+      new: Novo livro
+      back: Voltar para livros
+      back_author: Voltar para autor
+      controller:
+        update: Livro atualizado com sucesso.
+        create: Livro criado com sucesso.
+        destroy: Livro apagado com sucesso.
+  supplier:
+    view_index_title: Fornecedores
+    view_edit_title: Editando fornecedor
+    view_new_title: Novo fornecedor
+    show: Mostrar esse fornecedor
+    new: Cadastrar novo fornecedor
+    edit: Editar este fornecedor
+    destroy: Apagar este fornecedor
+    back: Voltar para fornecedores
+    error: proibiu esse fornecedor de ser salvo
+    show_accounts: Mostrar contas desse fornecedor
+    show_parts: Mostrar peças desse fornecedor
+    controller:
+      update: Fornecedor atualizado com sucesso.
+      create: Fornecedor criado com sucesso.
+      destroy: Fornecedor apagado com sucesso.
+    part:
+      view_edit_title: Editando peça
+      view_index_title: Peças
+      view_new_title: Nova peça
+      show_parts: Mostrar peças desse fornecedor
+      show: Mostrar essa peça
+      edit: Editar essa peça
+      destroy: Apagar essa peça
+      new: Nova peça
+      back: Voltar para peças
+      back_supplier: Voltar para fornecedor
+      _part_supplier: Fornecedor
+      controller:
+        update: Peça atualizada com sucesso.
+        create: Peça criada com sucesso.
+        destroy: Peça apagada com sucesso.
+    account:
+      view_edit_title: Editando conta
+      view_index_title: contas
+      view_new_title: Nova conta
+      show_accounts: Mostrar contas desse fornecedor
+      show: Mostrar essa conta
+      edit: Editar essa conta
+      destroy: Apagar essa conta
+      new: Nova conta
+      back: Voltar para contas
+      back_supplier: Voltar para fornecedor
+      _account_supplier: Fornecedor
+      controller:
+        update: Conta atualizada com sucesso.
+        create: Conta criada com sucesso.
+        destroy: Conta apagada com sucesso.
