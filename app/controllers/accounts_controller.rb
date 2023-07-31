@@ -26,27 +26,19 @@ class AccountsController < ApplicationController
   def create
     @account = @supplier.accounts.new(account_params)
 
-    respond_to do |format|
-      if @account.save
-        format.html { redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.create') }
-        format.json { render :show, status: :created, location: @account }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    if @account.save
+      redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.create')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
-    respond_to do |format|
-      if @account.update(account_params)
-        format.html { redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.update') }
-        format.json { render :show, status: :ok, location: @account }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
-      end
+    if @account.update(account_params)
+      redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.update')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -54,23 +46,17 @@ class AccountsController < ApplicationController
   def destroy
     @account.destroy
 
-    respond_to do |format|
-      format.html { redirect_to supplier_accounts_url, notice: I18n.t('supplier.account.controller.destroy') }
-      format.json { head :no_content }
-    end
+    redirect_to supplier_accounts_url, notice: I18n.t('supplier.account.controller.destroy')
   end
 
   private
   def set_supplier
     @supplier = Supplier.find(params[:supplier_id])
   end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_account
-      @account = @supplier.accounts.find(params[:id])
-    end
-
-    # Only allow a list of trusted parameters through.
-    def account_params
-      params.require(:account).permit(:bank, :number)
-    end
+  def set_account
+    @account = @supplier.accounts.find(params[:id])
+  end
+  def account_params
+    params.require(:account).permit(:bank, :number)
+  end
 end
