@@ -13,10 +13,10 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 - [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
 
 [ ] **APIs**
-- [ ] Cadastrar Autores
-- [ ] Cadastrar Livros vinculando com Autor
-- [ ] Cadastrar Fornecedores com uma Conta
-- [ ] Cadastrar Peças vinculando com Fornecedor
+- [x] Cadastrar Autores
+- [x] Cadastrar Livros vinculando com Autor
+- [x] Cadastrar Fornecedores com uma Conta
+- [x] Cadastrar Peças vinculando com Fornecedor
 - [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
 
 [ ] **Roles (Regras)**
@@ -53,7 +53,15 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
     - [ ] Livro com a montagem (com todas as informações) com suas peças (com todas as informações), o total de peças e o custo total da montagem
 
 ## Configuração do Ambiente
+- Ruby version: 3.1.2
+- Rails version: 7.0.6
+- Banco de Dados: PostgreSQL
+- 1 Clone o repositório: git clone https://github.com/PhilipeeX/Biblio-Tech.git
+- 2 Instale as dependências: bundle install
+- 3 Crie e migre o banco de dados: rails db:create && rails db:migrate
+- 4 Inicie o servidor: rails server
 
-## Executando o Projeto
+## Demonstração das requisições
+Demonstração das Requisições
+A seguir, um gif demonstrando as requisições feitas para todas as rotas da API utilizando o Insomnia:
 
-## Contribuição
