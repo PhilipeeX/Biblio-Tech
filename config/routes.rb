@@ -4,7 +4,10 @@ Rails.application.routes.draw do
       resources :books, only: [:index, :show, :create, :update, :destroy]
     end
 
-    resources :suppliers, only: [:index, :show, :create, :update, :destroy]
+    resources :suppliers, only: [:index, :show, :create, :update, :destroy]do
+      resources :parts, only: [:index, :show, :create, :update, :destroy]
+      resources :accounts, only: [:index, :show, :create, :update, :destroy]
+    end
   end
 
   resources :suppliers do
