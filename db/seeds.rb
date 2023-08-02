@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Criação dos authores
-asimov = Author.create(name: 'Isaac Asimov')
-clarke = Author.create( name: 'Arthur C. Clarke' )
+asimov = Author.create(name: 'Isaac Asimov', cpf: '658.945.940-14')
+clarke = Author.create( name: 'Arthur C. Clarke', cpf: '394.457.350-13' )
 
 # Livros escritos por Isaac Asimov
 Book.create(
