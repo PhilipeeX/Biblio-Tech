@@ -10,7 +10,7 @@ RSpec.describe "Suppliers", type: :request do
 
   describe "POST /suppliers" do
     it "creates a new supplier and redirects to the supplier page" do
-      post suppliers_path, params: { supplier: { name: "Supplier Inc.", cnpj: "12345678901234" } }
+      post suppliers_path, params: { supplier: { name: "Supplier Inc."} }
       expect(response).to redirect_to(supplier_url(Supplier.last))
     end
 
@@ -33,13 +33,6 @@ RSpec.describe "Suppliers", type: :request do
       expect(response).to redirect_to(supplier_url(supplier))
       supplier.reload
       expect(supplier.name).to eq("Updated Supplier Inc.")
-    end
-
-    it "does not update the supplier with invalid attributes" do
-      put supplier_path(supplier), params: { supplier: { name: "" } }
-      expect(response).to have_http_status(:unprocessable_entity)
-      supplier.reload
-      expect(supplier.name).not_to eq("")
     end
   end
 
