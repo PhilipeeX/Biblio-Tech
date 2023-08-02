@@ -3,6 +3,7 @@ pt-BR:
     attributes:
       author:
         name: Nome do autor
+        cpf: Cadastro de pessoa física
       book:
         title: Título
       supplier:
