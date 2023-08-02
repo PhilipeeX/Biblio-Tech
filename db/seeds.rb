@@ -13,44 +13,54 @@ clarke = Author.create( name: 'Arthur C. Clarke', cpf: '394.457.350-13' )
 # Livros escritos por Isaac Asimov
 Book.create(
   title: 'Foundation',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'Foundation and Empire',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'Second Foundation',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'I, Robot',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'The Caves of Steel',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 
 # Livros escrios por Clarcke
 Book.create(
   title: '2001: A Space Odyssey',
+  isbn: '978-1-63459-731-5',
   author: clarke
 )
 Book.create(
   title: 'Rendezvous with Rama',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'Childhood\'s End',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'The Fountains of Paradise',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'The City and the Stars',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 
