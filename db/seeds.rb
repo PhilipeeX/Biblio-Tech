@@ -6,11 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Criação do author
-asimov = Author.create(
-  name: 'Isaac Asimov'
-)
-
+# Criação dos authores
+asimov = Author.create(name: 'Isaac Asimov')
 clarke = Author.create( name: 'Arthur C. Clarke' )
 
 # Livros escritos por Isaac Asimov
@@ -59,11 +56,13 @@ Book.create(
 
 # Criação dos fornecedores
 booksgood = Supplier.create(
-  name: 'booksgood'
+  name: 'booksgood',
+  cnpj: Faker::Company.brazilian_company_number.to_s
 )
 
 sellbookcompany = Supplier.create(
-  name: 'SellBook Company'
+  name: 'SellBook Company',
+  cnpj: Faker::Company.brazilian_company_number.to_s
 )
 
 # Criação das contas dos fornecedores
@@ -85,7 +84,7 @@ Account.create(
   supplier: booksgood
 )
 
-# Criação das partes dos livros dos fornecedores
+# Criação das peças dos fornecedores
 Part.create(
   title: 'capa dura',
   description: 'capa rígida do material x com espessura y',
