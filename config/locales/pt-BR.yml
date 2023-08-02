@@ -13,6 +13,7 @@ pt-BR:
       account:
         bank: Banco
         number: Número
+        digit: Dígito verificador
   helpers:
     submit:
       create: Criar
