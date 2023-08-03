@@ -40,6 +40,6 @@ class Api::AuthorsController < ApplicationController
   private
 
   def author_params
-    params.require(:author).permit(:name)
+    params.require(:author).permit(:name, :cpf)
   end
 end
