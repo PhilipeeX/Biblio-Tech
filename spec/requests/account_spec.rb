@@ -42,6 +42,15 @@ RSpec.describe "Accounts", type: :request do
       expect(response).to redirect_to(supplier_account_url(supplier, Account.last))
       expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.create'))
     end
+
+    it 'do not create a new account with wrong digit' do
+      account_params = attributes_for(:account, supplier_id: supplier.id, digit: '2')
+
+      post supplier_accounts_path(supplier), params: { account: account_params }
+
+      expect(response.body).to include('is invalid')
+      expect(response.status).to eq(422)
+    end
   end
 
   describe "PATCH /suppliers/:supplier_id/accounts/:id" do
@@ -52,6 +61,14 @@ RSpec.describe "Accounts", type: :request do
       expect(response).to have_http_status(:found)
       expect(response).to redirect_to(supplier_account_url(supplier, account))
       expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.update'))
+    end
+
+    it "do not updates an existing account with wrong digit" do
+      new_bank = "Credit Suisse Bank"
+      patch supplier_account_path(supplier, account), params: { account: { bank: new_bank, number: '123456', digit: '9' } }
+
+      expect(response.body).to include('is invalid')
+      expect(response.status).to eq(422)
     end
   end
 

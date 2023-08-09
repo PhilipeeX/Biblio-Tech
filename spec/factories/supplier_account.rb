@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :account do
     bank { "Santander" }
-    number { Faker::Number.number(digits: 10) }
-    digit { rand(0..9).to_s }
+    number { '261533' }
+    digit { '9' }
     supplier
   end
 end

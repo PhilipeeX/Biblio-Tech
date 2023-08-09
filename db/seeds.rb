@@ -37,7 +37,7 @@ Book.create(
   author: asimov
 )
 
-# Livros escrios por Clarcke
+# Livros escritos por Clarcke
 Book.create(
   title: '2001: A Space Odyssey',
   isbn: '978-1-63459-731-5',
@@ -79,21 +79,21 @@ sellbookcompany = Supplier.create(
 Account.create(
   bank: 'Banco do Brasil',
   number: '123456',
-  digit: '1',
+  digit: '0',
   supplier: sellbookcompany
 )
 
 Account.create(
   bank: 'Itaú Unibanco',
-  number: '789012',
-  digit: '5',
+  number: '261533',
+  digit: '9',
   supplier: sellbookcompany
 )
 
 Account.create(
   bank: 'Bradesco',
-  number: '345678',
-  digit: '9',
+  number: '987654',
+  digit: '5',
   supplier: booksgood
 )
 
