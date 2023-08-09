@@ -2,7 +2,7 @@
 FactoryBot.define do
   factory :book do
     title { Faker::Book.title }
-    isbn { Faker::Code.isbn }
+    isbn { "9780470059029" }
     author
   end
 end
