@@ -2,7 +2,11 @@ class BooksController < ApplicationController
   before_action :set_author
 
   def index
-    @books = @author.books
+    if params[:title].present?
+      @books = @author.books.where('title ILIKE ?', "%#{params[:title]}%")
+    else
+      @books = @author.books
+    end
   end
 
   def show

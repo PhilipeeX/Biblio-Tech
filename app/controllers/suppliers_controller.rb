@@ -3,7 +3,7 @@ class SuppliersController < ApplicationController
 
   def index
     if params[:name].present?
-      @suppliers = Supplier.where('name LIKE ?', "%#{params[:name]}%")
+      @suppliers = Supplier.where('name ILIKE ?', "%#{params[:name]}%")
     else
       @suppliers = Supplier.all
     end
