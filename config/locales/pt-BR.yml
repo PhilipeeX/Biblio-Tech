@@ -90,6 +90,7 @@ pt-BR:
       view_index_title: contas
       view_index:
         account_number: Número da conta
+        any_supplier_account_found: Nenhuma conta encontrada
       view_new_title: Nova conta
       show_accounts: Mostrar contas desse fornecedor
       show: Mostrar essa conta
