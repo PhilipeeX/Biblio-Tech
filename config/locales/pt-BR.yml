@@ -38,6 +38,9 @@ pt-BR:
     book:
       view_edit_title: Editando livro
       view_index_title: livros
+      view_index:
+        filter_by_title: Filtrar por título
+        any_book_found: Nenhum livro encontrado
       view_new_title: Novo livro
       show_books: Mostrar livros desse autor
       show: Mostrar esse livro
