@@ -19,6 +19,8 @@ pt-BR:
     submit:
       create: Criar
       update: Atualizar
+    filter:
+      button: Filtrar
   author:
     index_title: Autores
     edit_title: Editando autor
@@ -52,7 +54,6 @@ pt-BR:
     view_index_title: Fornecedores
     view_index:
       filter_by_name: Filtrar por nome
-      filter: Filtrar
       any_supplier_found: Nenhum fornecedor encontrado
     view_edit_title: Editando fornecedor
     view_new_title: Novo fornecedor
@@ -87,6 +88,8 @@ pt-BR:
     account:
       view_edit_title: Editando conta
       view_index_title: contas
+      view_index:
+        account_number: Número da conta
       view_new_title: Nova conta
       show_accounts: Mostrar contas desse fornecedor
       show: Mostrar essa conta
