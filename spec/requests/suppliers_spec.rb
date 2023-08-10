@@ -14,6 +14,12 @@ RSpec.describe "Suppliers", type: :request do
       expect(response).to redirect_to(supplier_url(Supplier.last))
     end
 
+    it "do not create a new supplier with incorrect cnpj" do
+      expect {
+        FactoryBot.build(:supplier, cnpj: '11111111111111')
+      }.not_to change(Supplier, :count)
+    end
+
   end
 
   describe "GET /suppliers/:id" do
@@ -28,13 +34,30 @@ RSpec.describe "Suppliers", type: :request do
   describe "PUT /suppliers/:id" do
     let(:supplier) { FactoryBot.create(:supplier) }
 
-    it "updates the supplier and redirects to the supplier page" do
-      put supplier_path(supplier), params: { supplier: { name: "Updated Supplier Inc." } }
-      expect(response).to redirect_to(supplier_url(supplier))
-      supplier.reload
-      expect(supplier.name).to eq("Updated Supplier Inc.")
+    context "when updating with valid attributes" do
+      it "updates the supplier and redirects to the supplier page" do
+        put supplier_path(supplier), params: { supplier: { name: "Updated Supplier Inc." } }
+        expect(response).to redirect_to(supplier_url(supplier))
+        supplier.reload
+        expect(supplier.name).to eq("Updated Supplier Inc.")
+      end
+    end
+
+    context "when updating with an invalid CNPJ" do
+      it "does not update the supplier and re-renders the edit page" do
+        original_name = supplier.name
+        invalid_cnpj = "11111111111111"
+        put supplier_path(supplier), params: { supplier: { cnpj: invalid_cnpj } }
+
+        expect(response.status).to eq(422)
+
+        supplier.reload
+        expect(supplier.name).to eq(original_name)
+        expect(supplier.cnpj).not_to eq(invalid_cnpj)
+      end
     end
   end
+
 
   describe "DELETE /suppliers/:id" do
     let!(:supplier) { FactoryBot.create(:supplier) }
