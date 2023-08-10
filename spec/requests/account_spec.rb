@@ -9,6 +9,26 @@ RSpec.describe "Accounts", type: :request do
       get supplier_accounts_path(supplier)
       expect(response).to have_http_status(:success)
     end
+
+    context 'test filter' do
+
+      context 'with valid filter' do
+        it 'filters and returns the supplier account' do
+          get supplier_accounts_path(supplier, account)
+
+          expect(response.body).to include('261533')
+          expect(response.body).not_to include('111111')
+        end
+      end
+
+      context 'with no match filter' do
+        it 'shows no supplier account found message' do
+          get supplier_accounts_path(supplier), params: { number: '111111' }
+
+          expect(response.body).to include(I18n.t('supplier.account.view_index.any_supplier_account_found'))
+        end
+      end
+    end
   end
 
   describe "GET /suppliers/:supplier_id/accounts/:id" do
