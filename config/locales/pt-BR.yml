@@ -50,6 +50,10 @@ pt-BR:
         destroy: Livro apagado com sucesso.
   supplier:
     view_index_title: Fornecedores
+    view_index:
+      filter_by_name: Filtrar por nome
+      filter: Filtrar
+      any_supplier_found: Nenhum fornecedor encontrado
     view_edit_title: Editando fornecedor
     view_new_title: Novo fornecedor
     show: Mostrar esse fornecedor

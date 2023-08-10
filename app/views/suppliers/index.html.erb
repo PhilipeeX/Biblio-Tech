@@ -1,15 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
 <h1><%= I18n.t('supplier.view_index_title') %></h1>
-
-<div id="suppliers">
-  <% @suppliers.each do |supplier| %>
-    <%= render supplier %>
-    <p>
-      <%= link_to I18n.t('supplier.show'), supplier %>
-    </p>
-    <hr>
-  <% end %>
-</div>
+<%= form_with url: suppliers_path, method: :get, local: true do %>
+  <%= label_tag :name, I18n.t('supplier.view_index.filter_by_name') %>
+  <%= text_field_tag :name, params[:name] %>
+  <%= submit_tag I18n.t('supplier.view_index.filter') %>
+<% end %>
+<% if @suppliers.any? %>
+  <div id="suppliers">
+    <% @suppliers.each do |supplier| %>
+      <%= render supplier %>
+      <p>
+        <%= link_to I18n.t('supplier.show'), supplier %>
+      </p>
+      <hr>
+    <% end %>
+  </div>
+<% else %>
+  <p style="color: #B00100"><%= I18n.t('supplier.view_index.any_supplier_found') %></p>
+<% end %>
 
 <%= link_to I18n.t('supplier.new'), new_supplier_path %>
