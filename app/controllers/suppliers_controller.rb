@@ -1,19 +1,21 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[ show edit update destroy ]
+  before_action :set_supplier, only: %i[show edit update destroy]
 
   def index
-    @suppliers = Supplier.all
+    if params[:name].present?
+      @suppliers = Supplier.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @suppliers = Supplier.all
+    end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @supplier = Supplier.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @supplier = Supplier.new(supplier_params)
@@ -40,6 +42,7 @@ class SuppliersController < ApplicationController
   end
 
   private
+
   def set_supplier
     @supplier = Supplier.find(params[:id])
   end
