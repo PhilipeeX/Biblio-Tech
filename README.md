@@ -19,18 +19,18 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 - [x] Cadastrar Peças vinculando com Fornecedor
 - [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
 
-[ ] **Roles (Regras)**
-- [ ] Alterar
-    - [ ] Adicionar campo CNPJ em Fornecedor
-    - [ ] Adicionar campo Dígito Verificador em Conta
-    - [ ] Adicionar campo ISBN em Livro
-    - [ ] Adicionar campo CPF em Autor
-- [ ] Calcular
-    - [ ] Dígito Verificador em Conta (pesquisar como calcular esse dígito verificador)
-- [ ] Validar
-    - [ ] CNPJ em Fornecedor
-    - [ ] ISBN em Livro
-    - [ ] CPF em Autor
+[x] **Roles (Regras)**
+- [x] Alterar
+    - [x] Adicionar campo CNPJ em Fornecedor
+    - [x] Adicionar campo Dígito Verificador em Conta
+    - [x] Adicionar campo ISBN em Livro
+    - [x] Adicionar campo CPF em Autor
+- [x] Calcular
+    - [x] Dígito Verificador em Conta (pesquisar como calcular esse dígito verificador)
+- [x] Validar
+    - [x] CNPJ em Fornecedor
+    - [x] ISBN em Livro
+    - [x] CPF em Autor
 
 [ ] **Filtros**
 - [ ] Adicionar
