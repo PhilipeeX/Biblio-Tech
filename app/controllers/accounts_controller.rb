@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   # GET /accounts or /accounts.json
   def index
     if params[:number].present?
-      @accounts = @supplier.accounts.where('number LIKE ?', "%#{params[:number]}%")
+      @accounts = @supplier.accounts.where('number ILIKE ?', "%#{params[:number]}%")
     else
       @accounts = @supplier.accounts
     end
