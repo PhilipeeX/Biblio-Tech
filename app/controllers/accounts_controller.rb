@@ -4,8 +4,12 @@ class AccountsController < ApplicationController
 
   # GET /accounts or /accounts.json
   def index
-    @supplier = Supplier.find(params[:supplier_id])
-    @accounts = @supplier.accounts
+    if params[:number].present?
+      @accounts = @supplier.accounts.where('number LIKE ?', "%#{params[:number]}%")
+    else
+      @accounts = @supplier.accounts
+    end
+
   end
 
   # GET /accounts/1 or /accounts/1.json
