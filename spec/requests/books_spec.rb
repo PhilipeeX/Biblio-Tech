@@ -9,6 +9,30 @@ RSpec.describe "Books", type: :request do
       get author_books_path(author)
       expect(response).to have_http_status(:success)
     end
+
+    context 'test filter' do
+      let!(:book1) { create(:book, title: 'Neuromancer', author: author) }
+      let!(:book2) { create(:book, title: 'mancerneuro', author: author) }
+      context 'with valid filter' do
+        it 'filters and returns the correct book' do
+
+          get author_books_path(author), params: { title: 'neuromancer' }
+
+          expect(response.body).to include('Neuromancer')
+          expect(response.body).not_to include('mancerneuro')
+        end
+
+      end
+
+      context 'with no match filter' do
+        it 'does not return any books' do
+          get author_books_path(author), params: { title: 'foundation' }
+
+          expect(response.body).not_to include('Neuromancer')
+          expect(response.body).not_to include('mancerneuro')
+        end
+      end
+    end
   end
 
   describe "GET /authors/:author_id/books/:id" do
