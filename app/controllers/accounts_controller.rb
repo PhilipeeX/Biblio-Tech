@@ -57,6 +57,6 @@ class AccountsController < ApplicationController
     @account = @supplier.accounts.find(params[:id])
   end
   def account_params
-    params.require(:account).permit(:bank, :number)
+    params.require(:account).permit(:bank, :number, :digit)
   end
 end

@@ -6,86 +6,98 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# Criação do author
-asimov = Author.create(
-  name: 'Isaac Asimov'
-)
-
-clarke = Author.create( name: 'Arthur C. Clarke' )
+# Criação dos authores
+asimov = Author.create(name: 'Isaac Asimov', cpf: '658.945.940-14')
+clarke = Author.create( name: 'Arthur C. Clarke', cpf: '394.457.350-13' )
 
 # Livros escritos por Isaac Asimov
 Book.create(
   title: 'Foundation',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'Foundation and Empire',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'Second Foundation',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'I, Robot',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 Book.create(
   title: 'The Caves of Steel',
+  isbn: '978-1-63459-731-5',
   author: asimov
 )
 
-# Livros escrios por Clarcke
+# Livros escritos por Clarcke
 Book.create(
   title: '2001: A Space Odyssey',
+  isbn: '978-1-63459-731-5',
   author: clarke
 )
 Book.create(
   title: 'Rendezvous with Rama',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'Childhood\'s End',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'The Fountains of Paradise',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 Book.create(
   title: 'The City and the Stars',
+  isbn: '978-0-13-149505-0',
   author: clarke
 )
 
 # Criação dos fornecedores
 booksgood = Supplier.create(
-  name: 'booksgood'
+  name: 'booksgood',
+  cnpj: Faker::Company.brazilian_company_number.to_s
 )
 
 sellbookcompany = Supplier.create(
-  name: 'SellBook Company'
+  name: 'SellBook Company',
+  cnpj: Faker::Company.brazilian_company_number.to_s
 )
 
 # Criação das contas dos fornecedores
 Account.create(
   bank: 'Banco do Brasil',
   number: '123456',
+  digit: '0',
   supplier: sellbookcompany
 )
 
 Account.create(
   bank: 'Itaú Unibanco',
-  number: '789012',
+  number: '261533',
+  digit: '9',
   supplier: sellbookcompany
 )
 
 Account.create(
   bank: 'Bradesco',
-  number: '345678',
+  number: '987654',
+  digit: '5',
   supplier: booksgood
 )
 
-# Criação das partes dos livros dos fornecedores
+# Criação das peças dos fornecedores
 Part.create(
   title: 'capa dura',
   description: 'capa rígida do material x com espessura y',

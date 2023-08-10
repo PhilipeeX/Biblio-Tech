@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_02_224436) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
     t.string "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "digit"
     t.index ["supplier_id"], name: "index_accounts_on_supplier_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cpf"
   end
 
   create_table "books", force: :cascade do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "isbn"
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
@@ -50,6 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_201901) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cnpj"
   end
 
   add_foreign_key "accounts", "suppliers"
