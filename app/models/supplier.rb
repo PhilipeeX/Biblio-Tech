@@ -1,5 +1,5 @@
 class Supplier < ApplicationRecord
-  has_many :accounts, dependent: :destroy
+  has_one :account, dependent: :destroy
   has_many :parts, dependent: :destroy
 
   validate :cnpj_must_be_valid
