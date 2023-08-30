@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :supplier do
     name { Faker::Bank.name }
-    cnpj { Faker::Company.brazilian_company_number }
+    cnpj { '35.035.289/0001-69' }
   end
 end
