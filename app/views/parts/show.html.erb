@@ -3,7 +3,8 @@
 <%= render @part %>
 
 <div>
+  <%= link_to I18n.t('supplier.part.back'), parts_path %>
   <%= link_to I18n.t('supplier.part.edit'), edit_part_path(@part) %> |
 
-  <%= link_to I18n.t('supplier.part.destroy'), @part, method: :delete %>
+  <%= button_to I18n.t('supplier.part.destroy'), part_path(@part), method: :delete %>
 </div>
