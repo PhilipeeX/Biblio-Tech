@@ -6,34 +6,7 @@ RSpec.describe "Accounts", type: :request do
 
   describe "GET /suppliers/:supplier_id/accounts" do
     it "returns a success response" do
-      get supplier_accounts_path(supplier)
-      expect(response).to have_http_status(:success)
-    end
-
-    context 'test filter' do
-
-      context 'with valid filter' do
-        it 'filters and returns the supplier account' do
-          get supplier_accounts_path(supplier, account)
-
-          expect(response.body).to include('261533')
-          expect(response.body).not_to include('111111')
-        end
-      end
-
-      context 'with no match filter' do
-        it 'shows no supplier account found message' do
-          get supplier_accounts_path(supplier), params: { number: '111111' }
-
-          expect(response.body).to include(I18n.t('supplier.account.view_index.any_supplier_account_found'))
-        end
-      end
-    end
-  end
-
-  describe "GET /suppliers/:supplier_id/accounts/:id" do
-    it "returns a success response" do
-      get supplier_account_path(supplier, account)
+      get supplier_account_url(supplier)
       expect(response).to have_http_status(:success)
     end
   end
@@ -45,61 +18,76 @@ RSpec.describe "Accounts", type: :request do
     end
   end
 
-  describe "GET /suppliers/:supplier_id/accounts/:id/edit" do
+  describe "GET /suppliers/:supplier_id/accounts/edit" do
     it "returns a success response" do
-      get edit_supplier_account_path(supplier, account)
+      get edit_supplier_account_path(supplier)
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "POST /suppliers/:supplier_id/accounts" do
-    it "creates a new account and redirects to the account page" do
-      account_params = attributes_for(:account, supplier_id: supplier.id)
+    context "with valid parameters" do
+      before { supplier.account.destroy }
 
-      post supplier_accounts_path(supplier), params: { account: account_params }
+      it "creates a new accounts and redirects to the supplier page" do
+        account_params = attributes_for(:account).merge(supplier_id: supplier.id)
 
-      expect(response).to have_http_status(:found)
-      expect(response).to redirect_to(supplier_account_url(supplier, Account.last))
-      expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.create'))
+        expect {
+          post supplier_account_path(supplier), params: { account: account_params }
+        }.to change(Account, :count).by(1)
+
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(supplier_account_path(supplier))
+        expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.create'))
+      end
     end
 
-    it 'do not create a new account with wrong digit' do
-      account_params = attributes_for(:account, supplier_id: supplier.id, digit: '2')
+    context "with invalid parameters" do
+      before { supplier.account.destroy }
 
-      post supplier_accounts_path(supplier), params: { account: account_params }
+      it 'does not create a new accounts with wrong digit' do
+        account_params = attributes_for(:account, digit: '2')
 
-      expect(response.body).to include('is invalid')
-      expect(response.status).to eq(422)
-    end
-  end
+        post supplier_account_path(supplier), params: { account: account_params }
 
-  describe "PATCH /suppliers/:supplier_id/accounts/:id" do
-    it "updates an existing account" do
-      new_bank = "Credit Suisse Bank"
-      patch supplier_account_path(supplier, account), params: { account: { bank: new_bank } }
-
-      expect(response).to have_http_status(:found)
-      expect(response).to redirect_to(supplier_account_url(supplier, account))
-      expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.update'))
-    end
-
-    it "do not updates an existing account with wrong digit" do
-      new_bank = "Credit Suisse Bank"
-      patch supplier_account_path(supplier, account), params: { account: { bank: new_bank, number: '123456', digit: '9' } }
-
-      expect(response.body).to include('is invalid')
-      expect(response.status).to eq(422)
+        expect(response.body).to include('is invalid')
+        expect(response.status).to eq(422)
+      end
     end
   end
 
-  describe "DELETE /suppliers/:supplier_id/accounts/:id" do
-    it "destroys the account" do
+  describe "PATCH /suppliers/:supplier_id/accounts" do
+    context "with valid parameters" do
+      it "updates an existing account" do
+        new_bank = "Credit Suisse Bank"
+        patch supplier_account_path(supplier), params: { account: { bank: new_bank } }
+
+        expect(response).to have_http_status(:found)
+        expect(response).to redirect_to(supplier_account_url(supplier))
+        expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.update'))
+      end
+    end
+
+
+    context "with invalid parameters" do
+      it "does not update an existing accounts with wrong digit" do
+        new_bank = "Credit Suisse Bank"
+        patch supplier_account_path(supplier), params: { account: { bank: new_bank, number: '123456', digit: '9' } }
+
+        expect(response.body).to include('is invalid')
+        expect(response.status).to eq(422)
+      end
+    end
+  end
+
+  describe "DELETE /suppliers/:supplier_id/accounts" do
+    it "destroys the accounts" do
       expect {
-        delete supplier_account_path(supplier, account)
+        delete supplier_account_path(supplier)
       }.to change(Account, :count).by(-1)
 
       expect(response).to have_http_status(:found)
-      expect(response).to redirect_to(supplier_accounts_url(supplier))
+      expect(response).to redirect_to(supplier_url(supplier))
       expect(flash[:notice]).to eq(I18n.t('supplier.account.controller.destroy'))
     end
   end

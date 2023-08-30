@@ -6,11 +6,10 @@
   <% @parts.each do |part| %>
     <%= render part %>
     <p>
-      <%= link_to I18n.t('supplier.part.show'), [@supplier, part] %>
+      <%= link_to I18n.t('supplier.part.show'), part %>
     </p>
     <hr>
   <% end %>
 </div>
 
-<%= link_to I18n.t('supplier.part.new'), new_supplier_part_path %> |
-<%= link_to I18n.t('supplier.part.back_supplier'), @supplier %>
+<%= link_to I18n.t('supplier.part.new'), new_part_path %> |

@@ -6,13 +6,13 @@ RSpec.describe Account, type: :model do
   end
 
   context 'validations' do
-    it 'should validate correct digit for account number' do
+    it 'should validate correct digit for accounts number' do
       account1 = FactoryBot.create(:account)
 
       expect(account1.calculate_digit_mod11).to eq('digit valid')
     end
 
-    it 'should invalidate incorrect digit for account number' do
+    it 'should invalidate incorrect digit for accounts number' do
       account2 = FactoryBot.create(:account, digit: '4')
 
       expect(account2.calculate_digit_mod11).to eq('digit invalid')

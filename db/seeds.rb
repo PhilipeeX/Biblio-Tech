@@ -61,7 +61,6 @@ sellbookcompany = Supplier.create(name: 'SellBook Company', cnpj: Faker::Company
 
 # Criação das contas dos fornecedores
 Account.create(bank: 'Banco do Brasil', number: '123456', digit: '0', supplier: sellbookcompany)
-Account.create(bank: 'Itaú Unibanco', number: '261533', digit: '9', supplier: sellbookcompany)
 Account.create(bank: 'Bradesco', number: '987654', digit: '5', supplier: booksgood)
 
 # Criação das peças dos fornecedores

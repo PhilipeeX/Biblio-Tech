@@ -2,24 +2,14 @@ class AccountsController < ApplicationController
   before_action :set_supplier
   before_action :set_account, only: %i[ show edit update destroy ]
 
-  # GET /accounts or /accounts.json
-  def index
-    if params[:number].present?
-      @accounts = @supplier.accounts.where('number ILIKE ?', "%#{params[:number]}%")
-    else
-      @accounts = @supplier.accounts
-    end
-
-  end
-
   # GET /accounts/1 or /accounts/1.json
   def show
-    @supplier = Supplier.find(params[:supplier_id])
   end
 
   # GET /accounts/new
   def new
-    @account = @supplier.accounts.new
+    @supplier = Supplier.find(params[:supplier_id])
+    @account = @supplier.build_account
   end
 
   # GET /accounts/1/edit
@@ -28,10 +18,10 @@ class AccountsController < ApplicationController
 
   # POST /accounts or /accounts.json
   def create
-    @account = @supplier.accounts.new(account_params)
+    @account = @supplier.build_account(account_params)
 
     if @account.save
-      redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.create')
+      redirect_to supplier_account_path(@supplier), notice: I18n.t('supplier.account.controller.create')
     else
       render :new, status: :unprocessable_entity
     end
@@ -40,7 +30,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
     if @account.update(account_params)
-      redirect_to supplier_account_url(@supplier,@account), notice: I18n.t('supplier.account.controller.update')
+      redirect_to supplier_account_path(@supplier), notice: I18n.t('supplier.account.controller.update')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,17 +39,18 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1 or /accounts/1.json
   def destroy
     @account.destroy
-
-    redirect_to supplier_accounts_url, notice: I18n.t('supplier.account.controller.destroy')
+    redirect_to supplier_url(@supplier), notice: I18n.t('supplier.account.controller.destroy')
   end
 
   private
   def set_supplier
     @supplier = Supplier.find(params[:supplier_id])
   end
+
   def set_account
-    @account = @supplier.accounts.find(params[:id])
+    @account = @supplier.account
   end
+
   def account_params
     params.require(:account).permit(:bank, :number, :digit)
   end

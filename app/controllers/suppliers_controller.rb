@@ -1,5 +1,5 @@
 class SuppliersController < ApplicationController
-  before_action :set_supplier, only: %i[show edit update destroy]
+  before_action :set_supplier, only: %i[edit update destroy]
 
   def index
     if params[:name].present?
@@ -9,7 +9,9 @@ class SuppliersController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @supplier = Supplier.includes(:account).find(params[:id])
+  end
 
   def new
     @supplier = Supplier.new
