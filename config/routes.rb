@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   resources :parts
 
   resources :suppliers do
-    resources :accounts
+    resource :account, controller: 'accounts'
   end
 end
