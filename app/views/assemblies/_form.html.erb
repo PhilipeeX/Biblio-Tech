@@ -1,0 +1,15 @@
+<%= form_with(model: assembly) do |form| %>
+  <div class="field">
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_ids, "Parts" %><br>
+    <%= collection_check_boxes(:assembly, :part_ids, Part.all, :id, :title) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

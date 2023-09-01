@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   resources :authors
   resources :books
-
   resources :parts
+  resources :assemblies
 
   resources :suppliers do
     resource :account, controller: 'accounts'

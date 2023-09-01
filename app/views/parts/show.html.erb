@@ -1,6 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @part %>
+<div>
+  <strong>Montagens associadas a essa peça:</strong>
+  <ul>
+    <% @part.assemblies.each do |assembly| %>
+      <li><%= link_to assembly.name, assembly_path(assembly) %></li>
+    <% end %>
+  </ul>
+</div>
 
 <div>
   <%= link_to I18n.t('supplier.part.back'), parts_path %> |

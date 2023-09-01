@@ -1,0 +1,24 @@
+<h1>Montagens</h1>
+
+<%= link_to 'Nova Montagem', new_assembly_path %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Nome</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @assemblies.each do |assembly| %>
+    <tr>
+      <td><%= assembly.name %></td>
+      <td>
+        <%= link_to 'Mostrar', assembly %>
+        <%= link_to 'Editar', edit_assembly_path(assembly) %>
+        <%= link_to 'Excluir', assembly, method: :delete, data: { confirm: 'Tem certeza?' } %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
