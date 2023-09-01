@@ -37,7 +37,7 @@ pt-BR:
       destroy: Autor apagado com sucesso.
     book:
       view_edit_title: Editando livro
-      view_index_title: livros
+      view_index_title: Livros
       view_index:
         filter_by_title: Filtrar por título
         any_book_found: Nenhum livro encontrado
