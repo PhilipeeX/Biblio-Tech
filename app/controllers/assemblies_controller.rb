@@ -19,7 +19,7 @@ class AssembliesController < ApplicationController
     @assembly = Assembly.new(assembly_params)
 
     if @assembly.save
-      redirect_to assembly_url(@assembly), notice: 'Montagem criada com sucesso.'
+      redirect_to assembly_url(@assembly), notice: I18n.t('assembly.controller.action_create.success')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class AssembliesController < ApplicationController
 
   def update
     if @assembly.update(assembly_params)
-      redirect_to assembly_url(@assembly), notice: 'Montagem atualizada com sucesso.'
+      redirect_to assembly_url(@assembly), notice: I18n.t('assembly.controller.action_update.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class AssembliesController < ApplicationController
 
   def destroy
     @assembly.destroy
-    redirect_to assemblies_url, notice: 'Montagem excluída com sucesso.'
+    redirect_to assemblies_url, notice: I18n.t('assembly.controller.action_destroy.success')
   end
 
   private

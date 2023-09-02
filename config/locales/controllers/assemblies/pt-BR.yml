@@ -1,0 +1,9 @@
+pt-BR:
+  assembly:
+    controller:
+      action_create:
+        success: Montagem criada com sucesso.
+      action_update:
+        success: Montagem cadastrada com sucesso.
+      action_destroy:
+        success: Montagem excluída com sucesso.
