@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    attributes:
+      part:
+        title: Título
+        description: Descrição
+        supplier_id: Fornecedor
+  part:
+    view_edit_title: Editando peça
+    view_index_title: Peças
+    view_new_title: Nova peça
+    view_show:
+      assembly_associated: Montagens associadas a essa peça
+    show_parts: Mostrar peças desse fornecedor
+    show: Mostrar essa peça
+    edit: Editar essa peça
+    destroy: Apagar essa peça
+    new: Nova peça
+    back: Voltar para peças
+    back_supplier: Voltar para fornecedor
+    _part_supplier: Fornecedor
+    error: impediu essa peça de ser salva.
+    controller:
+      update: Peça atualizada com sucesso.
+      create: Peça criada com sucesso.
+      destroy: Peça apagada com sucesso.

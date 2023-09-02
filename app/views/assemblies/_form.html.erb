@@ -1,0 +1,28 @@
+<%= form_with(model: assembly) do |form| %>
+  <% if assembly.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(assembly.errors.count, "error") %> <%= I18n.t('assembly.form_error') %>:</h2>
+
+      <ul>
+        <% assembly.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :part_ids %><br>
+    <%= collection_check_boxes(:assembly, :part_ids, Part.all, :id, :title) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

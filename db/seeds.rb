@@ -1,16 +1,16 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
 # Criação dos autores
 asimov = Author.create(name: 'Isaac Asimov', cpf: '658.945.940-14')
 clarke = Author.create(name: 'Arthur C. Clarke', cpf: '394.457.350-13')
 gibson = Author.create(name: 'William Gibson', cpf: '964.864.390-33')
 howey = Author.create(name: 'Hugh Howey', cpf: '940.258.540-07')
+herbert = Author.create(name: 'Frank Herbert', cpf: '752.727.750-58')
+bradbury = Author.create(name: 'Ray Bradbury', cpf: '241.776.870-49')
+orwell = Author.create(name: 'George Orwell', cpf: '544.963.410-26')
+huxley = Author.create(name: 'Aldous Huxley', cpf: '421.607.640-86')
+dick = Author.create(name: 'Philip K. Dick', cpf: '756.196.160-02')
+verne = Author.create(name: 'Jules Verne', cpf: '902.483.450-36')
+wells = Author.create(name: 'H.G. Wells', cpf: '237.531.920-66')
 
 # Definindo uma lista de ISBNs válidos
 valid_isbns = [
@@ -54,19 +54,77 @@ Book.create(title: 'Dust', isbn: valid_isbns.sample, author: howey)
 Book.create(title: 'Beacon 23', isbn: valid_isbns.sample, author: howey)
 Book.create(title: 'Silo', isbn: valid_isbns.sample, author: howey)
 
+# Livros escritos por Frank Herbert
+Book.create(title: 'Dune', isbn: valid_isbns.sample, author: herbert)
+Book.create(title: 'Dune Messiah', isbn: valid_isbns.sample, author: herbert)
+Book.create(title: 'Children of Dune', isbn: valid_isbns.sample, author: herbert)
+Book.create(title: 'God Emperor of Dune', isbn: valid_isbns.sample, author: herbert)
+Book.create(title: 'Heretics of Dune', isbn: valid_isbns.sample, author: herbert)
+
+# Livros escritos por Ray Bradbury
+Book.create(title: 'Fahrenheit 451', isbn: valid_isbns.sample, author: bradbury)
+Book.create(title: 'The Martian Chronicles', isbn: valid_isbns.sample, author: bradbury)
+Book.create(title: 'Something Wicked This Way Comes', isbn: valid_isbns.sample, author: bradbury)
+Book.create(title: 'Dandelion Wine', isbn: valid_isbns.sample, author: bradbury)
+Book.create(title: 'The Illustrated Man', isbn: valid_isbns.sample, author: bradbury)
+
+# Livros escritos por George Orwell
+Book.create(title: '1984', isbn: valid_isbns.sample, author: orwell)
+Book.create(title: 'Animal Farm', isbn: valid_isbns.sample, author: orwell)
+Book.create(title: 'Homage to Catalonia', isbn: valid_isbns.sample, author: orwell)
+Book.create(title: 'Down and Out in Paris and London', isbn: valid_isbns.sample, author: orwell)
+Book.create(title: 'The Road to Wigan Pier', isbn: valid_isbns.sample, author: orwell)
+
+# Livros escritos por Aldous Huxley
+Book.create(title: 'Brave New World', isbn: valid_isbns.sample, author: huxley)
+Book.create(title: 'The Doors of Perception', isbn: valid_isbns.sample, author: huxley)
+Book.create(title: 'Island', isbn: valid_isbns.sample, author: huxley)
+Book.create(title: 'Ape and Essence', isbn: valid_isbns.sample, author: huxley)
+Book.create(title: 'Point Counter Point', isbn: valid_isbns.sample, author: huxley)
+
+# Livros escritos por Philip K. Dick
+Book.create(title: 'Do Androids Dream of Electric Sheep?', isbn: valid_isbns.sample, author: dick)
+Book.create(title: 'The Man in the High Castle', isbn: valid_isbns.sample, author: dick)
+Book.create(title: 'Ubik', isbn: valid_isbns.sample, author: dick)
+Book.create(title: 'A Scanner Darkly', isbn: valid_isbns.sample, author: dick)
+Book.create(title: 'Flow My Tears, the Policeman Said', isbn: valid_isbns.sample, author: dick)
+
+# Livros escritos por Jules Verne
+Book.create(title: 'Twenty Thousand Leagues Under the Sea', isbn: valid_isbns.sample, author: verne)
+Book.create(title: 'Journey to the Center of the Earth', isbn: valid_isbns.sample, author: verne)
+Book.create(title: 'Around the World in Eighty Days', isbn: valid_isbns.sample, author: verne)
+Book.create(title: 'The Mysterious Island', isbn: valid_isbns.sample, author: verne)
+Book.create(title: 'From the Earth to the Moon', isbn: valid_isbns.sample, author: verne)
+
+# Livros escritos por H.G. Wells
+Book.create(title: 'The War of the Worlds', isbn: valid_isbns.sample, author: wells)
+Book.create(title: 'The Time Machine', isbn: valid_isbns.sample, author: wells)
+Book.create(title: 'The Invisible Man', isbn: valid_isbns.sample, author: wells)
+Book.create(title: 'The Island of Doctor Moreau', isbn: valid_isbns.sample, author: wells)
+Book.create(title: 'The First Men in the Moon', isbn: valid_isbns.sample, author: wells)
+
 
 # Criação dos fornecedores
-booksgood = Supplier.create(name: 'booksgood', cnpj: Faker::Company.brazilian_company_number.to_s)
-sellbookcompany = Supplier.create(name: 'SellBook Company', cnpj: Faker::Company.brazilian_company_number.to_s)
+booksgood = Supplier.create(name: 'booksgood', cnpj: Faker::Company.brazilian_company_number(formatted: true))
+sellbookcompany = Supplier.create(name: 'SellBook Company', cnpj: Faker::Company.brazilian_company_number(formatted: true))
 
 # Criação das contas dos fornecedores
 Account.create(bank: 'Banco do Brasil', number: '123456', digit: '0', supplier: sellbookcompany)
 Account.create(bank: 'Bradesco', number: '987654', digit: '5', supplier: booksgood)
 
-# Criação das peças dos fornecedores
-Part.create(title: 'capa dura', description: 'capa rígida do material x com espessura y', supplier: booksgood)
-Part.create(title: 'folhas resistentes a agua', description: 'folhas que tem a espessura de x milimetros com resistência a agua', supplier: sellbookcompany)
-Part.create(title: 'Folhas que brilham no escuro', description: 'Folhas que as crianças adoram, elas brilham na luz neon', supplier: sellbookcompany)
-Part.create(title: 'capa com relevo', description: 'capa do material x com relevo personalizado', supplier: booksgood)
-Part.create(title: 'folhas coloridas', description: 'folhas com cores vibrantes para tornar a leitura mais divertida', supplier: booksgood)
-Part.create(title: 'marcadores de página', description: 'marcadores de página personalizados e coloridos', supplier: sellbookcompany)
+# Criação das montagens
+assembly1 = Assembly.create(name: 'Montagem de Capa Dura')
+assembly2 = Assembly.create(name: 'Montagem de Livro de Bolso')
+assembly3 = Assembly.create(name: 'Montagem de Livro Infantil')
+
+# Criação das peças
+part1 = Part.create(title: 'Capa Dura', description: 'Capa rígida feita de material resistente', supplier: booksgood)
+part2 = Part.create(title: 'Folhas de Papel', description: 'Folhas de papel reciclado de 80g/m2', supplier: sellbookcompany)
+part3 = Part.create(title: 'Folhas Coloridas', description: 'Folhas de papel colorido de 80g/m2', supplier: booksgood)
+
+# Associação das peças com as montagens
+assembly1.parts << part1
+assembly1.parts << part2
+assembly2.parts << part2
+assembly3.parts << part2
+assembly3.parts << part3

@@ -1,34 +1,36 @@
 <p style="color: green"><%= notice %></p>
 
+<h1><%= I18n.t('book.view_index.title') %></h1>
 <%= form_with url: books_path, method: :get, local: true do %>
   <div>
-    <%= label_tag :search, 'Pesquisar por:' %>
-    <%= radio_button_tag :search, 'author', params[:search] == 'author' %>
-    <%= label_tag :search_author, 'Autor' %>
+    <%= label_tag :search, I18n.t('book.view_index.search.find_by') + ":" %>
+    <%= radio_button_tag :search, 'author', params[:search].nil? || params[:search] == 'author' %>
+    <%= label_tag :search_author, I18n.t('activerecord.attributes.author.name') %>
     <%= radio_button_tag :search, 'title', params[:search] == 'title' %>
-    <%= label_tag :search_title, 'Título' %>
+    <%= label_tag :search_title, I18n.t('activerecord.attributes.book.title') %>
   </div>
   <div>
-    <%= label_tag :query, 'Consulta' %>
+    <%= label_tag :query, I18n.t('book.view_index.search.query') + ':' %>
     <%= text_field_tag :query, params[:query] %>
   </div>
   <div>
-    <%= submit_tag 'Filtrar' %>
+    <%= submit_tag I18n.t('book.view_index.search.filter') %>
   </div>
 <% end %>
+<hr>
+<%= link_to I18n.t('book.new'), new_book_path %>
+
 
 <% if @books.any? %>
   <div id="books">
     <% @books.each do |book| %>
       <%= render book %>
       <p>
-        <%= link_to I18n.t('author.book.show'), book_path(id: book.id) %>
+        <%= link_to I18n.t('book.show'), book_path(id: book.id) %>
       </p>
       <hr>
     <% end %>
   </div>
 <% else %>
-  <p style="color: #B00100"> <%= I18n.t('author.book.view_index.any_book_found')%></p>
+  <p style="color: #B00100"> <%= I18n.t('book.view_index.search.any_book_found')%></p>
 <% end %>
-
-<%= link_to I18n.t('author.book.new'), new_book_path %> |
