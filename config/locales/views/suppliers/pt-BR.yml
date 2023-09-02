@@ -1,0 +1,24 @@
+pt-BR:
+  activerecord:
+    attributes:
+      supplier:
+        name: Nome do fornecedor
+  supplier:
+    view_index_title: Fornecedores
+    view_index:
+      filter_by_name: Filtrar por nome
+      any_supplier_found: Nenhum fornecedor encontrado
+    view_edit_title: Editando fornecedor
+    view_new_title: Novo fornecedor
+    show: Mostrar esse fornecedor
+    new: Cadastrar novo fornecedor
+    edit: Editar este fornecedor
+    destroy: Apagar este fornecedor
+    back: Voltar para fornecedores
+    error: impediu esse fornecedor de ser salvo
+    show_accounts: Mostrar contas desse fornecedor
+    show_parts: Mostrar peças desse fornecedor
+    controller:
+      update: Fornecedor atualizado com sucesso.
+      create: Fornecedor criado com sucesso.
+      destroy: Fornecedor apagado com sucesso.

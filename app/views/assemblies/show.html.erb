@@ -1,12 +1,12 @@
 <h1><%= @assembly.name %></h1>
 
-<h2>Peças</h2>
+<h2><%= I18n.t('activerecord.attributes.assembly.part_ids') %></h2>
 <ul>
   <% @assembly.parts.each do |part| %>
     <li><%= part.title %> (<%= part.description %>)</li>
   <% end %>
 </ul>
 
-<%= link_to 'Editar', edit_assembly_path(@assembly) %>
-<%= link_to 'Excluir', @assembly, method: :delete, data: { confirm: 'Tem certeza?' } %>
-<%= link_to 'Voltar', assemblies_path %>
+<%= link_to I18n.t('assembly.edit'), edit_assembly_path(@assembly) %> |
+<%= link_to I18n.t('assembly.back'), assemblies_path %> |
+<%= button_to I18n.t('assembly.destroy'), @assembly, method: :delete, data: { confirm: I18n.t('assembly.destroy_confirm') } %>

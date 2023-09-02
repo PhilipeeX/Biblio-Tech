@@ -1,12 +1,12 @@
-<h1>Montagens</h1>
+<h1><%= I18n.t('assembly.view_index_title') %></h1>
 
-<%= link_to 'Nova Montagem', new_assembly_path %>
+<%= link_to I18n.t('assembly.view_index.new'), new_assembly_path %>
 
 <table>
   <thead>
   <tr>
-    <th>Nome</th>
-    <th>Ações</th>
+    <th><%= I18n.t('assembly.view_index.name') %></th>
+    <th><%= I18n.t('assembly.view_index.actions') %></th>
   </tr>
   </thead>
   <tbody>
@@ -14,9 +14,10 @@
     <tr>
       <td><%= assembly.name %></td>
       <td>
-        <%= link_to 'Mostrar', assembly %>
-        <%= link_to 'Editar', edit_assembly_path(assembly) %>
-        <%= link_to 'Excluir', assembly, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        <%= link_to I18n.t('assembly.show'), assembly %>
+        <%= link_to I18n.t('assembly.edit'), edit_assembly_path(assembly) %>
+        <%= button_to I18n.t('assembly.destroy'), assembly, method: :delete, data: { confirm: I18n.t('assembly.destroy_confirm') } %>
+        <hr>
       </td>
     </tr>
   <% end %>

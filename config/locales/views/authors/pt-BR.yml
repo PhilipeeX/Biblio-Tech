@@ -1,0 +1,22 @@
+pt-BR:
+  activerecord:
+    attributes:
+      author:
+        name: Nome do autor
+        cpf: Cadastro de pessoa física
+  author:
+    index_title: Autores
+    edit_title: Editando autor
+    new_title: Novo autor
+    view_show:
+      books_from_author: Livros deste autor
+    show: Mostrar esse autor
+    new: Cadastrar novo autor
+    edit: Editar este autor
+    destroy: Apagar este autor
+    back: Voltar para autores
+    error: proibiu esse autor de ser salvo
+    controller:
+      update: Autor atualizado com sucesso.
+      create: Autor criado com sucesso.
+      destroy: Autor apagado com sucesso.

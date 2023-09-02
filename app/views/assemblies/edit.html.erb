@@ -1,6 +1,6 @@
-<h1>Editar Montagem</h1>
+<h1><%= I18n.t('assembly.view_edit.title') %></h1>
 
 <%= render 'form', assembly: @assembly %>
 
-<%= link_to 'Mostrar', @assembly %>
-<%= link_to 'Voltar', assemblies_path %>
+<%= link_to I18n.t('assembly.show'), @assembly %> |
+<%= link_to I18n.t('assembly.back'), assemblies_path %>

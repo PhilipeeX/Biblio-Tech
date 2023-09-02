@@ -1,5 +1,5 @@
-<h1>Nova Montagem</h1>
+<h1><%= I18n.t('assembly.view_index.new') %></h1>
 
 <%= render 'form', assembly: @assembly %>
 
-<%= link_to 'Voltar', assemblies_path %>
+<%= link_to I18n.t('assembly.back'), assemblies_path %>

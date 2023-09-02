@@ -3,7 +3,7 @@
 <%= render @author %>
 
 <div>
-  <h2>Livros deste autor:</h2>
+  <h2><%= I18n.t('author.view_show.books_from_author') %>:</h2>
   <ul>
     <% @author.books.each do |book| %>
       <li><%= book.title %></li>
