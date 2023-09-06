@@ -20,3 +20,6 @@ pt-BR:
     destroy_confirm: Tem certeza?
     back: Voltar para montagens
     form_error: impediu essa montagem de ser salva
+    search_engine:
+      part_name: Nome da peça
+      any_assembly_found: Nenhuma montagem encontrada

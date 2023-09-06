@@ -1,25 +1,40 @@
 <h1><%= I18n.t('assembly.view_index_title') %></h1>
+<%= form_with url: assemblies_path, method: :get, local: true do %>
+  <div>
+    <%= label_tag :part_name, I18n.t('assembly.search_engine.part_name') + ':'%>
+    <%= text_field_tag :part_name, params[:part_name] %>
+  </div>
+  <div>
+    <%= submit_tag I18n.t('book.view_index.search.filter') %>
+  </div>
+<% end %>
 
+<hr>
 <%= link_to I18n.t('assembly.view_index.new'), new_assembly_path %>
 
-<table>
-  <thead>
-  <tr>
-    <th><%= I18n.t('assembly.view_index.name') %></th>
-    <th><%= I18n.t('assembly.view_index.actions') %></th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @assemblies.each do |assembly| %>
+<% if @assemblies.any? %>
+  <table>
+    <thead>
     <tr>
-      <td><%= assembly.name %></td>
-      <td>
-        <%= link_to I18n.t('assembly.show'), assembly %>
-        <%= link_to I18n.t('assembly.edit'), edit_assembly_path(assembly) %>
-        <%= button_to I18n.t('assembly.destroy'), assembly, method: :delete, data: { confirm: I18n.t('assembly.destroy_confirm') } %>
-        <hr>
-      </td>
+      <th><%= I18n.t('assembly.view_index.name') %></th>
+      <th><%= I18n.t('assembly.view_index.actions') %></th>
     </tr>
-  <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+    <% @assemblies.each do |assembly| %>
+      <tr>
+        <td><%= assembly.name %></td>
+        <td>
+          <%= link_to I18n.t('assembly.show'), assembly %>
+          <%= link_to I18n.t('assembly.edit'), edit_assembly_path(assembly) %>
+          <%= button_to I18n.t('assembly.destroy'), assembly, method: :delete, data: { confirm: I18n.t('assembly.destroy_confirm') } %>
+          <hr>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p style="color: #B00100"> <%= I18n.t('assembly.search_engine.any_assembly_found') %></p>
+<% end %>
+
