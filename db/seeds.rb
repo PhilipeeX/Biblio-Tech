@@ -118,9 +118,9 @@ assembly2 = Assembly.create(name: 'Montagem de Livro de Bolso')
 assembly3 = Assembly.create(name: 'Montagem de Livro Infantil')
 
 # Criação das peças
-part1 = Part.create(title: 'Capa Dura', description: 'Capa rígida feita de material resistente', supplier: booksgood)
-part2 = Part.create(title: 'Folhas de Papel', description: 'Folhas de papel reciclado de 80g/m2', supplier: sellbookcompany)
-part3 = Part.create(title: 'Folhas Coloridas', description: 'Folhas de papel colorido de 80g/m2', supplier: booksgood)
+part1 = Part.create(title: 'Capa Dura', description: 'Capa rígida feita de material resistente', price: 25.90, supplier: booksgood)
+part2 = Part.create(title: 'Folhas de Papel', description: 'Folhas de papel reciclado de 80g/m2', price: 90.00, supplier: sellbookcompany)
+part3 = Part.create(title: 'Folhas Coloridas', description: 'Folhas de papel colorido de 80g/m2', price: 122.50, supplier: booksgood)
 
 # Associação das peças com as montagens
 assembly1.parts << part1
