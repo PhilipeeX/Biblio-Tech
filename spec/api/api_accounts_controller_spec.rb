@@ -27,7 +27,7 @@ RSpec.describe Api::AccountsController, type: :request do
   describe 'GET /api/suppliers/:supplier_id/accounts/:id' do
     before { get "/api/suppliers/#{@supplier.id}/accounts/#{@account1.id}" }
 
-    it 'returns the account' do
+    it 'returns the accounts' do
       expect(json).not_to be_empty
       expect(json['id']).to eq(@account1.id)
     end
@@ -42,7 +42,7 @@ RSpec.describe Api::AccountsController, type: :request do
       let(:supplier) { create(:supplier) }
       let(:valid_attributes) { { account: { bank: 'Inter', number: '123456', digit: '7' } } }
 
-      it 'creates a account' do
+      it 'creates a accounts' do
         expect {
           post "/api/suppliers/#{supplier.id}/accounts", params: valid_attributes
         }.to change(Account, :count).by(1)

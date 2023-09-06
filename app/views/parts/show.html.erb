@@ -1,10 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @part %>
+<div>
+  <strong><%= I18n.t('part.view_show.assembly_associated') %>:</strong>
+  <ul>
+    <% @part.assemblies.each do |assembly| %>
+      <li><%= link_to assembly.name, assembly_path(assembly) %></li>
+    <% end %>
+  </ul>
+</div>
 
 <div>
-  <%= link_to I18n.t('supplier.part.edit'), edit_supplier_part_path(@supplier, @part) %> |
-  <%= link_to I18n.t('supplier.part.back'), supplier_parts_path %>
+  <%= link_to I18n.t('part.back'), parts_path %> |
+  <%= link_to I18n.t('part.edit'), edit_part_path(@part) %> |
 
-  <%= button_to I18n.t('supplier.part.destroy'), [@supplier,@part], method: :delete %>
+  <%= button_to I18n.t('part.destroy'), part_path(@part), method: :delete %>
 </div>

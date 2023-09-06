@@ -1,0 +1,25 @@
+pt-BR:
+  activerecord:
+    attributes:
+      assembly:
+        name: Nome
+        part_ids: Peças
+  assembly:
+    view_edit:
+      title: Editar Montagem
+    view_edit_title: Editando fornecedor
+    view_index_title: Montagens
+    view_index:
+      new: Nova montagem
+      name: Nome
+      actions: Ações
+    show: Mostrar essa montagem
+    new: Cadastrar nova montagem
+    edit: Editar essa montagem
+    destroy: Apagar essa montagem
+    destroy_confirm: Tem certeza?
+    back: Voltar para montagens
+    form_error: impediu essa montagem de ser salva
+    search_engine:
+      part_name: Nome da peça
+      any_assembly_found: Nenhuma montagem encontrada

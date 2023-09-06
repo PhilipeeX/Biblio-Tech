@@ -15,7 +15,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create account" do
+  test "should create accounts" do
     assert_difference("Account.count") do
       post accounts_url, params: { account: { bank: @account.bank, number: @account.number, supplier_id: @account.supplier_id } }
     end
@@ -23,7 +23,7 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to account_url(Account.last)
   end
 
-  test "should show account" do
+  test "should show accounts" do
     get account_url(@account)
     assert_response :success
   end
@@ -33,12 +33,12 @@ class AccountsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should update account" do
+  test "should update accounts" do
     patch account_url(@account), params: { account: { bank: @account.bank, number: @account.number, supplier_id: @account.supplier_id } }
     assert_redirected_to account_url(@account)
   end
 
-  test "should destroy account" do
+  test "should destroy accounts" do
     assert_difference("Account.count", -1) do
       delete account_url(@account)
     end

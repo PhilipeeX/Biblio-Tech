@@ -1,12 +1,12 @@
 class Book < ApplicationRecord
   belongs_to :author
-
   validate :isbn_must_be_valid
 
   private
 
   def isbn_must_be_valid
-    return if valid_isbn_10?(isbn) || valid_isbn_13?(isbn)
+    cleaned_isbn = isbn.gsub(/\D/, '')
+    return if valid_isbn_10?(cleaned_isbn) || valid_isbn_13?(cleaned_isbn)
     errors.add(:isbn, "is not valid")
   end
 

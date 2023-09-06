@@ -1,0 +1,27 @@
+pt-BR:
+  activerecord:
+    attributes:
+      book:
+        title: Título
+  book:
+    view_edit_title: Editando livro
+    view_index:
+      title: Livros
+      search:
+        find_by: Pesquisar por
+        query: Consulta
+        filter: Filtrar
+        any_book_found: Nenhum livro encontrado
+    view_new_title: Novo livro
+    show_books: Mostrar livros desse autor
+    show: Mostrar esse livro
+    edit: Editar esse livro
+    destroy: Apagar esse livro
+    new: Novo livro
+    back: Voltar para livros
+    back_author: Voltar para autor
+    form_error: impediu esse livro de ser salvo
+    controller:
+      update: Livro atualizado com sucesso.
+      create: Livro criado com sucesso.
+      destroy: Livro apagado com sucesso.

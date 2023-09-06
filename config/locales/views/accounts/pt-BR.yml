@@ -1,0 +1,28 @@
+pt-BR:
+  activerecord:
+    attributes:
+      account:
+        bank: Banco
+        number: Número
+        digit: Dígito verificador
+  account:
+    view_edit_title: Editando conta
+    view_index_title: contas
+    view_index:
+      account_number: Número da conta
+      any_supplier_account_found: Nenhuma conta encontrada
+    view_form:
+      error: impediu essa conta de ser salva
+    view_new_title: Nova conta
+    show_accounts: Mostrar contas desse fornecedor
+    show: Mostrar essa conta
+    edit: Editar essa conta
+    destroy: Apagar essa conta
+    new: Nova conta
+    back: Voltar para contas
+    back_supplier: Voltar para fornecedor
+    _account_supplier: Fornecedor
+    controller:
+      update: Conta atualizada com sucesso.
+      create: Conta criada com sucesso.
+      destroy: Conta apagada com sucesso.
