@@ -59,4 +59,25 @@ RSpec.describe PartsController, type: :controller do
       expect(response).to redirect_to(parts_url)
     end
   end
+
+  context 'Testind price field' do
+    describe "POST #create" do
+      it "creates a new part with a valid price and redirects to the part page" do
+        valid_part_params = attributes_for(:part, price: 100.50).merge(supplier_id: supplier.id)
+        expect {
+          post :create, params: { part: valid_part_params }
+        }.to change(Part, :count).by(1)
+        expect(response).to redirect_to(part_url(Part.last))
+      end
+
+      it "does not create a part with an invalid price and shows an error message" do
+        invalid_part_params = attributes_for(:part, price: "invalid_price").merge(supplier_id: supplier.id)
+        expect {
+          post :create, params: { part: invalid_part_params }
+        }.not_to change(Part, :count)
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+
+  end
 end
