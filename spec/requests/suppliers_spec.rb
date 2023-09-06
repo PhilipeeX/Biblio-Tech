@@ -13,7 +13,7 @@ RSpec.describe 'Suppliers', type: :request do
 
       context 'with valid filter' do
         it 'filters and returns the suppliers' do
-          get suppliers_path, params: { name: 'Matrix' }
+          get suppliers_path, params: { filter_by: 'name', query: 'Matrix' }
 
           expect(response.body).to include('Matrix Supplier')
           expect(response.body).not_to include('Other Supplier')
@@ -22,11 +22,26 @@ RSpec.describe 'Suppliers', type: :request do
 
       context 'with no match filter' do
         it 'shows no supplier found message' do
-          get suppliers_path, params: { name: 'Nonexistent' }
+          get suppliers_path, params: { filter_by: 'name', query: 'Nonexistent' }
 
           expect(response.body).to include(I18n.t('supplier.view_index.any_supplier_found'))
         end
       end
+
+      context 'test filter by account number' do
+        let!(:supplier_1) { create(:supplier, name: 'Supplier 1') }
+        let!(:supplier_2) { create(:supplier, name: 'Supplier 2') }
+        let!(:account_1) { create(:account, number: '123456', digit: '0', supplier: supplier_1) }
+        let!(:account_2) { create(:account, number: '987654', digit: '5', supplier: supplier_2) }
+
+        it 'filters and returns the suppliers by account number' do
+          get suppliers_path, params: { filter_by: 'account_number', query: '123456' }
+
+          expect(response.body).to include('Supplier 1')
+          expect(response.body).not_to include('Supplier 2')
+        end
+      end
+
     end
   end
 

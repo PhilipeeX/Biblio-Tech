@@ -10,7 +10,7 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 - [x] Cadastrar Livros vinculando com Autor
 - [x] Cadastrar Fornecedores com uma Conta
 - [x] Cadastrar Peças vinculando com Fornecedor
-- [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
+- [x] Cadastrar Montagens com várias Peças e vinculando com Livro
 
 [ ] **APIs**
 - [x] Cadastrar Autores
@@ -33,15 +33,15 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
     - [x] CPF em Autor
 
 [ ] **Filtros**
-- [ ] Adicionar
-    - [ ] Campo título em Livro
-    - [ ] Campo nome em Peça
+- [x] Adicionar
+    - [x] Campo título em Livro
+    - [x] Campo nome em Peça
 - [ ] Filtrar
-    - [ ] Fornecedor por nome
-    - [ ] Fornecedor por número da conta em Conta
-    - [ ] Livros por título
-    - [ ] Livros por nome em Autor
-    - [ ] Montagem por nome em Peça
+    - [x] Fornecedor por nome
+    - [x] Fornecedor por número da conta em Conta
+    - [x] Livros por título
+    - [x] Livros por nome em Autor
+    - [x] Montagem por nome em Peça
     - [ ] Fornecedor por nome do Autor
 
 [ ] **Relatórios**

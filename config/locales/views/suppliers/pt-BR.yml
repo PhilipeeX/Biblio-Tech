@@ -6,7 +6,10 @@ pt-BR:
   supplier:
     view_index_title: Fornecedores
     view_index:
-      filter_by_name: Filtrar por nome
+      filter_by: Filtrar por
+      name: Nome
+      account_number: Número da conta
+      search_query: Filtrar
       any_supplier_found: Nenhum fornecedor encontrado
     view_edit_title: Editando fornecedor
     view_new_title: Novo fornecedor
