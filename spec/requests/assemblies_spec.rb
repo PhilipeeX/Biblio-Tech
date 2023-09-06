@@ -51,4 +51,19 @@ RSpec.describe 'Assemblies', type: :request do
       expect(Assembly.exists?(assembly.id)).to be_falsey
     end
   end
+
+  describe 'GET /assemblies with filter' do
+    it 'returns assemblies filtered by part title' do
+      assembly_with_part = FactoryBot.create(:assembly)
+      assembly_without_part = FactoryBot.create(:assembly)
+      part = FactoryBot.create(:part, title: 'marcadores neon')
+      assembly_with_part.parts << part
+
+      get assemblies_path, params: { part_name: 'marcadores neon' }
+
+      expect(response).to have_http_status(:success)
+      expect(response.body).to include(assembly_with_part.name)
+      expect(response.body).not_to include(assembly_without_part.name)
+    end
+  end
 end
