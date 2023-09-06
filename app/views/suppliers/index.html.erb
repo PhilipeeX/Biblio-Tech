@@ -2,10 +2,26 @@
 
 <h1><%= I18n.t('supplier.view_index_title') %></h1>
 <%= form_with url: suppliers_path, method: :get, local: true do %>
-  <%= label_tag :name, I18n.t('supplier.view_index.filter_by_name') %>
-  <%= text_field_tag :name, params[:name] %>
-  <%= submit_tag I18n.t('helpers.filter.button') %>
+  <div>
+    <%= label_tag :filter_by, I18n.t('supplier.view_index.filter_by') + ":" %>
+    <%= radio_button_tag :filter_by, 'name', params[:filter_by] == 'name' %>
+    <%= label_tag :name, I18n.t('supplier.view_index.name') %>
+
+    <%= radio_button_tag :filter_by, 'account_number', params[:filter_by] == 'account_number' %>
+    <%= label_tag :account_number, I18n.t('supplier.view_index.account_number') %>
+  </div>
+
+  <div>
+    <%= label_tag :query, I18n.t('supplier.view_index.search_query') %>
+    <%= text_field_tag :query, params[:query] %>
+  </div>
+
+  <div>
+    <%= submit_tag I18n.t('helpers.filter.button') %>
+  </div>
 <% end %>
+
+
 <% if @suppliers.any? %>
   <div id="suppliers">
     <% @suppliers.each do |supplier| %>

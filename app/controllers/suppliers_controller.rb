@@ -2,12 +2,15 @@ class SuppliersController < ApplicationController
   before_action :set_supplier, only: %i[edit update destroy]
 
   def index
-    if params[:name].present?
-      @suppliers = Supplier.where('name ILIKE ?', "%#{params[:name]}%")
+    if params[:filter_by] == 'name' && params[:query].present?
+      @suppliers = Supplier.where('name ILIKE ?', "%#{params[:query]}%")
+    elsif params[:filter_by] == 'account_number' && params[:query].present?
+      @suppliers = Supplier.joins(:account).where('accounts.number ILIKE ?', "%#{params[:query]}%")
     else
       @suppliers = Supplier.all
     end
   end
+
 
   def show
     @supplier = Supplier.includes(:account).find(params[:id])
