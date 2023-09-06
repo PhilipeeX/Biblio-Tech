@@ -2,7 +2,11 @@ class AssembliesController < ApplicationController
   before_action :set_assembly, only: %i[show edit update destroy]
 
   def index
-    @assemblies = Assembly.all.includes(:parts)
+    if params[:part_name].present?
+      @assemblies = Assembly.joins(:parts).where('parts.title ILIKE ?', "%#{params[:part_name]}%").distinct
+    else
+      @assemblies = Assembly.all.includes(:parts)
+    end
   end
 
   def show
