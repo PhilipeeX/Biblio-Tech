@@ -1,4 +1,3 @@
-# spec/requests/authors_spec.rb
 require 'rails_helper'
 
 RSpec.describe 'Authors', type: :request do
@@ -63,6 +62,40 @@ RSpec.describe 'Authors', type: :request do
       delete author_path(author)
       expect(response).to redirect_to(authors_url)
       expect(Author.exists?(author.id)).to be_falsey
+    end
+  end
+
+  context 'AUTHORs relatorio' do
+    describe 'GET /relatorios/author' do
+      it 'returns a success response' do
+        get author_path
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'displays author information' do
+        author = FactoryBot.create(:author)
+        get author_path
+        expect(response.body).to include(author.name)
+        expect(response.body).to include(author.cpf)
+        expect(response.body).to include(author.books.count.to_s)
+      end
+
+      it 'displays book information for each author' do
+        author = FactoryBot.create(:author)
+        book = FactoryBot.create(:book, author: author)
+        get author_path
+        expect(response.body).to include(book.title)
+        expect(response.body).to include(book.isbn)
+      end
+
+      it 'displays the total number of books published for each author' do
+        author = FactoryBot.create(:author)
+        FactoryBot.create_list(:book, 3, author: author)
+        get author_path
+        expect(response.body).to include("Total de livros:")
+        author = Author.last
+        expect(response.body).to include(author.books.count.to_s)
+      end
     end
   end
 end
