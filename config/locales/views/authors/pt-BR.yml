@@ -20,3 +20,8 @@ pt-BR:
       update: Autor atualizado com sucesso.
       create: Autor criado com sucesso.
       destroy: Autor apagado com sucesso.
+    relatorio:
+      title: Relatório de autores
+      author: Autor
+      total_books: Total de livros
+      book_title: Título do livro
