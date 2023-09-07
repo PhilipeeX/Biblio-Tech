@@ -1,0 +1,35 @@
+<h1><%= I18n.t('author.relatorio.title') %></h1>
+
+<div class="authors-container">
+  <% @authors.each do |author| %>
+    <div class="author-box">
+      <div class="author-info">
+        <p><strong><%= I18n.t('author.relatorio.author') %>:</strong> <%= author.name %></p>
+        <p><strong>CPF:</strong> <%= author.cpf %></p>
+        <p><strong><%= I18n.t('author.relatorio.total_books') %>:</strong> <%= author.books.count %></p>
+      </div>
+
+      <div class="books-info">
+        <table>
+          <thead>
+          <tr>
+            <th><%= I18n.t('author.relatorio.book_title') %></th>
+            <th>ISBN</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% author.books.each do |book| %>
+            <tr>
+              <td><%= book.title %></td>
+              <td><%= book.isbn %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <hr class="separator">
+  <% end %>
+</div>
+

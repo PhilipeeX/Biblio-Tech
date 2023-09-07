@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope :relatorios do
+    get 'author', to: 'authors#relatorio'
+  end
+
   resources :authors
   resources :books
   resources :parts
