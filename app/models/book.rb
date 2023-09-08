@@ -1,5 +1,7 @@
 class Book < ApplicationRecord
   belongs_to :author
+  belongs_to :assembly
+
   validate :isbn_must_be_valid
 
   private
