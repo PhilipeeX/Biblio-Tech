@@ -1,0 +1,45 @@
+<h1><%= I18n.t('supplier.relatorio.title') %></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th><%= I18n.t('activerecord.attributes.supplier.name') %></th>
+    <th>Número da Conta</th>
+    <th>Autores e Livros</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @suppliers.each do |supplier| %>
+    <tr>
+      <td><%= render supplier %></td>
+      <td>
+        <% if supplier.account %>
+          <%= supplier.account.number %>
+          <%= supplier.account.digit %>
+        <% else %>
+          <%= I18n.t('supplier.supplier_account') %>
+        <% end %>
+      </td>
+      <td>
+        <ul>
+          <% supplier.parts.each do |part| %>
+            <% part.assemblies.each do |assembly| %>
+              <li>
+                <%= assembly.book.author.name %>
+                (<strong>cpf: </strong><%= assembly.book.author.cpf %>)
+              </li>
+              <ul>
+                <% assembly.book.author.books.each do |book| %>
+                  <li>
+                    <%= book.title %> (<strong>isbn: </strong><%= book.isbn %>)
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

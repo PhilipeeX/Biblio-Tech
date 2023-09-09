@@ -46,6 +46,9 @@ class SuppliersController < ApplicationController
     redirect_to suppliers_url, notice: I18n.t('supplier.controller.destroy')
   end
 
+  def relatorio
+    @suppliers = Supplier.all
+  end
   private
 
   def set_supplier
