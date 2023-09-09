@@ -21,7 +21,7 @@ class AccountsController < ApplicationController
     @account = @supplier.build_account(account_params)
 
     if @account.save
-      redirect_to supplier_account_path(@supplier), notice: I18n.t('supplier.account.controller.create')
+      redirect_to supplier_account_path(@supplier), notice: I18n.t('account.controller.create')
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1 or /accounts/1.json
   def update
     if @account.update(account_params)
-      redirect_to supplier_account_path(@supplier), notice: I18n.t('supplier.account.controller.update')
+      redirect_to supplier_account_path(@supplier), notice: I18n.t('account.controller.update')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +39,7 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1 or /accounts/1.json
   def destroy
     @account.destroy
-    redirect_to supplier_url(@supplier), notice: I18n.t('supplier.account.controller.destroy')
+    redirect_to supplier_url(@supplier), notice: I18n.t('account.controller.destroy')
   end
 
   private
