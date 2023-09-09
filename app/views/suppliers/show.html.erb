@@ -6,7 +6,7 @@
   <%= @supplier.account.digit %>
   <%= link_to "Acessar conta", supplier_account_path(@supplier) %>
 <% else %>
-  Esse fornecedor não possui conta
+  <%= I18n.t('supplier.supplier_account') %>
   <%= link_to "Criar conta", new_supplier_account_path(@supplier) %>
 <% end %>
 
