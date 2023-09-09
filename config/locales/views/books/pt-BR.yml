@@ -6,6 +6,7 @@ pt-BR:
   book:
     view_edit_title: Editando livro
     view_index:
+      report: Relatório de livros
       title: Livros
       search:
         find_by: Pesquisar por
