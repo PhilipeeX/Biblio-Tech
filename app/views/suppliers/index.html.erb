@@ -11,6 +11,9 @@
 
     <%= radio_button_tag :filter_by, 'account_number', params[:filter_by] == 'account_number' %>
     <%= label_tag :account_number, I18n.t('supplier.view_index.account_number') %>
+
+    <%= radio_button_tag :filter_by, 'author_name', params[:filter_by] == 'author_name' %>
+    <%= label_tag :author_name, I18n.t('supplier.view_index.author_name') %>
   </div>
 
   <div>
