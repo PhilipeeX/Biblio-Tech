@@ -6,6 +6,8 @@ class SuppliersController < ApplicationController
       @suppliers = Supplier.where('name ILIKE ?', "%#{params[:query]}%")
     elsif params[:filter_by] == 'account_number' && params[:query].present?
       @suppliers = Supplier.joins(:account).where('accounts.number ILIKE ?', "%#{params[:query]}%")
+    elsif params[:filter_by] == 'author_name' && params[:query].present?
+      @suppliers = Supplier.joins(parts: { assemblies: { book: :author } }).where('authors.name ILIKE ?', "%#{params[:query]}%").distinct
     else
       @suppliers = Supplier.all
     end

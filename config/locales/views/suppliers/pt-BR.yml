@@ -9,6 +9,7 @@ pt-BR:
       filter_by: Filtrar por
       name: Nome
       account_number: Número da conta
+      author_name: Nome do autor
       search_query: Filtrar
       any_supplier_found: Nenhum fornecedor encontrado
     relatorio:
