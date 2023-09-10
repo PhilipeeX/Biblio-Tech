@@ -6,7 +6,7 @@
 <%= form_with url: suppliers_path, method: :get, local: true do %>
   <div>
     <%= label_tag :filter_by, I18n.t('supplier.view_index.filter_by') + ":" %>
-    <%= radio_button_tag :filter_by, 'name', params[:filter_by] == 'name' %>
+    <%= radio_button_tag :filter_by, 'name', params[:filter_by].nil? || params[:filter_by] == 'name' %>
     <%= label_tag :name, I18n.t('supplier.view_index.name') %>
 
     <%= radio_button_tag :filter_by, 'account_number', params[:filter_by] == 'account_number' %>
