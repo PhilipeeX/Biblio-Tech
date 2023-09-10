@@ -1,31 +1,40 @@
 class Api::BooksController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_author
+
   def index
-    @books = @author.books
-    render json: @books
+    @books = Book.all.includes(:author)
+    books_data = @books.map do |book|
+      {
+        id: book.id,
+        nome_do_autor: book.author.name,
+        title: book.title,
+        isbn: book.isbn,
+        montagem: book.assembly.name
+      }
+    end
+    render json: books_data
   end
 
   def show
-    @book = @author.books.find(params[:id])
+    @book = Book.find(params[:id])
     render json: @book
   end
 
   def create
-    @book = @author.books.new(book_params)
+    @book = Book.new(book_params)
 
     if @book.save
-      render json: @book, status: :created
+      render json: @book, status: :created, except: [:updated_at, :created_at]
     else
       render json: @book.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    @book = @author.books.find(params[:id])
+    @book = Book.find(params[:id])
 
     if @book.update(book_params)
-      render json: @book
+      render json: @book, except: [:updated_at, :created_at]
     else
       render json: @book.errors, status: :unprocessable_entity
     end
@@ -39,11 +48,7 @@ class Api::BooksController < ApplicationController
 
   private
 
-  def set_author
-    @author = Author.find(params[:author_id])
-  end
-
   def book_params
-    params.require(:book).permit(:title, :isbn)
+    params.require(:book).permit(:title, :isbn, :author_id, :assembly_id)
   end
 end
