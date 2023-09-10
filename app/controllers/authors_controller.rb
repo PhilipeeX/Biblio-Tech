@@ -37,6 +37,10 @@ class AuthorsController < ApplicationController
     redirect_to authors_url, notice: I18n.t('author.controller.destroy')
   end
 
+  def relatorio
+    @authors = Author.all
+  end
+
   private
   def set_author
     @author = Author.find(params[:id])

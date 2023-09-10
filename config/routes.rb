@@ -10,12 +10,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :authors
-  resources :books
   resources :parts
   resources :assemblies
 
+  resources :authors do
+    get 'relatorio', on: :collection
+  end
+
+  resources :books do
+    get 'relatorio', on: :collection
+  end
+
   resources :suppliers do
     resource :account, controller: 'accounts'
+    get 'relatorio', on: :collection
   end
 end

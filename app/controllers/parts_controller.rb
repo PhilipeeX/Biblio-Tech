@@ -16,7 +16,7 @@ class PartsController < ApplicationController
     @part = Part.new(part_params)
 
     if @part.save
-      redirect_to @part, notice: I18n.t('supplier.part.controller.create')
+      redirect_to @part, notice: I18n.t('part.controller.create')
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class PartsController < ApplicationController
 
   def update
     if @part.update(part_params)
-      redirect_to @part, notice: I18n.t('supplier.part.controller.update')
+      redirect_to @part, notice: I18n.t('part.controller.update')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -36,7 +36,7 @@ class PartsController < ApplicationController
   def destroy
     @part.destroy
 
-    redirect_to parts_url, notice: I18n.t('supplier.part.controller.destroy')
+    redirect_to parts_url, notice: I18n.t('part.controller.destroy')
   end
 
   private
@@ -44,6 +44,6 @@ class PartsController < ApplicationController
     @part = Part.find(params[:id])
   end
   def part_params
-    params.require(:part).permit(:title, :description, :supplier_id)
+    params.require(:part).permit(:title, :description, :supplier_id, :price)
   end
 end

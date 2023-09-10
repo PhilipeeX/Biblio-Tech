@@ -1,0 +1,4 @@
+pt-BR:
+  model:
+    part:
+      greater_than_or_equal_to: "deve ser um número não negativo"

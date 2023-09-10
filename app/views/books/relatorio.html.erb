@@ -1,0 +1,40 @@
+<h1><%= I18n.t('book.view_index.report') %></h1>
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>ISBN</th>
+    <th>Assembly</th>
+    <th>Parts</th>
+    <th>Total cost</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author.name %></td>
+      <td><%= book.isbn %></td>
+      <td><%= book.assembly.name %></td>
+      <td>
+        <ul>
+          <% total_cost = 0 %>
+          <% book.assembly.parts.each do |part| %>
+            <li>
+              <strong>Title:</strong> <%= part.title %><br>
+              <strong>Description:</strong> <%= part.description %><br>
+              <strong>Part Number:</strong> <%= part.part_number %><br>
+              <strong>Price:</strong> <%= part.price %><br>
+              <strong>Supplier:</strong> <%= part.supplier.name %><br>
+              <strong><%= part.supplier.name %> - CNPJ:</strong> <%= part.supplier.cnpj %><br>
+              <% total_cost += part.price %>
+            </li>
+          <% end %>
+        </ul>
+      </td>
+      <td>$<%= total_cost %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

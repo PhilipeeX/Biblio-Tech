@@ -9,8 +9,12 @@ pt-BR:
       filter_by: Filtrar por
       name: Nome
       account_number: Número da conta
+      author_name: Nome do autor
       search_query: Filtrar
       any_supplier_found: Nenhum fornecedor encontrado
+    relatorio:
+      title: Relatório de fornecedores
+    supplier_account: Esse fornecedor não possui conta cadastrada
     view_edit_title: Editando fornecedor
     view_new_title: Novo fornecedor
     show: Mostrar esse fornecedor

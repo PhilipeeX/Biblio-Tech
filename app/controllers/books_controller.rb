@@ -23,7 +23,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
 
     if @book.save
-      redirect_to @book, notice: I18n.t('author.book.controller.create')
+      redirect_to @book, notice: I18n.t('book.controller.create')
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
 
     if @book.update(book_params)
-      redirect_to @book, notice: I18n.t('author.book.controller.update')
+      redirect_to @book, notice: I18n.t('book.controller.update')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -47,7 +47,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
 
-    redirect_to books_url, notice: I18n.t('author.book.controller.destroy')
+    redirect_to books_url, notice: I18n.t('book.controller.destroy')
+  end
+
+  def relatorio
+    @books = Book.all
   end
 
   private
