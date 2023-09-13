@@ -3,7 +3,7 @@ class Api::AuthorsController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     authors = Author.all
-    render json: authors
+    render json: authors, except: %i[created_at updated_at]
   end
 
   def show
@@ -15,7 +15,7 @@ class Api::AuthorsController < ApplicationController
     author = Author.new(author_params)
 
     if author.save
-      render json: author, status: :created
+      render json: author, status: :created, except: %i[created_at updated_at]
     else
       render json: { errors: author.errors }, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class Api::AuthorsController < ApplicationController
     author = Author.find(params[:id])
 
     if author.update(author_params)
-      render json: author
+      render json: author, except: %i[created_at updated_at]
     else
       render json: { errors: author.errors }, status: :unprocessable_entity
     end

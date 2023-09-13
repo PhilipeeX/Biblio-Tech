@@ -2,12 +2,12 @@ class Api::SuppliersController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @suppliers = Supplier.all
-    render json: @suppliers
+    render json: @suppliers, except: %i[created_at updated_at]
   end
 
   def show
     @supplier = Supplier.find(params[:id])
-    render json: @supplier
+    render json: @supplier.as_json(include: { account: { only: %i[bank number digit] } }, except: %i[created_at updated_at])
   end
 
   def create
@@ -24,7 +24,7 @@ class Api::SuppliersController < ApplicationController
     @supplier = Supplier.find(params[:id])
 
     if @supplier.update(supplier_params)
-      render json: @supplier
+      render json: @supplier, except: %i[created_at updated_at]
     else
       render json: @supplier.errors, status: :unprocessable_entity
     end
