@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
-    resources :authors, only: [:index, :show, :create, :update, :destroy]
-    resources :books, only: [:index, :show, :create, :update, :destroy]
-
-    resources :suppliers, only: [:index, :show, :create, :update, :destroy]
-    resources :accounts, only: [:index, :show, :create, :update, :destroy]
-    resources :parts, only: [:index, :show, :create, :update, :destroy]
+    resources :authors
+    resources :books
+    resources :accounts
+    resources :parts
+    resources :suppliers
+    resources :assemblies
   end
 
   resources :parts
