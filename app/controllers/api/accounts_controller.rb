@@ -1,19 +1,18 @@
 class Api::AccountsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_supplier
 
   def index
-    @accounts = @supplier.accounts
+    @accounts = Account.select('accounts.*, suppliers.name as supplier_name').joins(:supplier)
     render json: @accounts
   end
 
   def show
-    @account = @supplier.accounts.find(params[:id])
+    @account = @supplier.account
     render json: @account
   end
 
   def create
-    @account = @supplier.accounts.new(account_params)
+    @account = Account.new(account_params)
 
     if @account.save
       render json: @account, status: :created
@@ -23,7 +22,7 @@ class Api::AccountsController < ApplicationController
   end
 
   def update
-    @account = @supplier.accounts.find(params[:id])
+    @account = @supplier.account
 
     if @account.update(account_params)
       render json: @account
@@ -33,7 +32,7 @@ class Api::AccountsController < ApplicationController
   end
 
   def destroy
-    @account = @supplier.accounts.find(params[:id])
+    @account = @supplier.account
     @account.destroy
 
     head :no_content
@@ -41,11 +40,7 @@ class Api::AccountsController < ApplicationController
 
   private
 
-  def set_supplier
-    @supplier = Supplier.find(params[:supplier_id])
-  end
-
   def account_params
-    params.require(:account).permit(:bank, :number, :digit)
+    params.require(:account).permit(:supplier_id, :bank, :number, :digit)
   end
 end

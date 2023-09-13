@@ -1,19 +1,18 @@
 class Api::PartsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :set_supplier
 
   def index
-    @parts = @supplier.parts
+    @parts = Part.all
     render json: @parts
   end
 
   def show
-    @part = @supplier.parts.find(params[:id])
+    @part = Part.find(params[:id])
     render json: @part
   end
 
   def create
-    @part = @supplier.parts.new(part_params)
+    @part = Part.new(part_params)
 
     if @part.save
       render json: @part, status: :created
@@ -23,7 +22,7 @@ class Api::PartsController < ApplicationController
   end
 
   def update
-    @part = @supplier.parts.find(params[:id])
+    @part = Part.find(params[:id])
 
     if @part.update(part_params)
       render json: @part
@@ -33,17 +32,13 @@ class Api::PartsController < ApplicationController
   end
 
   def destroy
-    @part = @supplier.parts.find(params[:id])
+    @part = Part.find(params[:id])
     @part.destroy
 
     head :no_content
   end
 
   private
-
-  def set_supplier
-    @supplier = Supplier.find(params[:supplier_id])
-  end
 
   def part_params
     params.require(:part).permit(:title, :description)
