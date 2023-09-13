@@ -62,6 +62,7 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 - 4 Inicie o servidor: rails server
 
 ## Demonstração das requisições
-Demonstração das Requisições
-A seguir, um gif demonstrando as requisições feitas para todas as rotas da API utilizando o Insomnia:
+Demonstração das Requisições:
+- A seguir, um gif demonstrando as requisições feitas para todas as rotas da API utilizando o Insomnia:
+
 ![Gif demonstrando a API](https://github.com/PhilipeeX/Biblio-Tech/assets/85847179/5f5f0d65-956b-4d77-acfc-163bd5d02748)
