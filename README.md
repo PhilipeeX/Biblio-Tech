@@ -12,12 +12,12 @@ Bem-vindo ao BiblioTech, um projeto especial desenvolvido como parte das tarefas
 - [x] Cadastrar Peças vinculando com Fornecedor
 - [x] Cadastrar Montagens com várias Peças e vinculando com Livro
 
-[ ] **APIs**
+[x] **APIs**
 - [x] Cadastrar Autores
 - [x] Cadastrar Livros vinculando com Autor
 - [x] Cadastrar Fornecedores com uma Conta
 - [x] Cadastrar Peças vinculando com Fornecedor
-- [ ] Cadastrar Montagens com várias Peças e vinculando com Livro
+- [x] Cadastrar Montagens com várias Peças e vinculando com Livro
 
 [x] **Roles (Regras)**
 - [x] Alterar
